@@ -14,12 +14,11 @@ Giải thích hoạt động của kiểu dữ liệu `String` trong Java.
 - Tạo `String` bằng `String str1 = "abc"`
     - JMV sẽ kiểm tra và tạo mới một object nếu chưa có trong String pool.
 
-```java
+{% highlight java %}
 String str1 = "abc";
 String str2 = "abc";
 System.out.println("Compare str1==str2: " + (str1==str2)); 
-
-``` 
+{% endhighlight %}
 
 ```shell
 $ mvn clean package
