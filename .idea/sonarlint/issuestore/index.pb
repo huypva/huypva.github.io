@@ -1,11 +1,7 @@
 
-;
-gulpfile.js,e/e/ee9d2cf188170ffae6c24450b921d4dd26b8dfaf
 :
 
 index.html,f/6/f6013a00b362253c64368d6eebc50ea2131754e2
-7
-Gemfile,d/e/de3150c01c3a946a6168173c4116741379fe3579
 7
 LICENSE,0/3/0398ccd0f49298b10a3d76a47800d2ebecd49859
 <
