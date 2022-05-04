@@ -36,6 +36,7 @@ layout: default
       <h3 class="contact-title">Tags</h3>
       <ul class="tags">
         <!--  cycles through tag list and creates header row of all tags used in site with accompanying per-tag counts...-->
+        {% assign tag_words = site.tags | sort %}
         {% for this_word in tag_words limit: 5%}
         {% assign tag_size = this_word | split: '#' %}
         <li ><a style="font-size: 12px" href="{{site.baseurl}}/tags#{{ tag_size[1] }}" class="tag">&#35; {{ tag_size[1] }} <span>({{ tag_size[0] }})</span></a></li>
