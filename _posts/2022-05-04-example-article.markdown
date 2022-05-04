@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Example Article
-date: 2022-05-04 13:32:20 +0300
+date: 2017-09-12 13:32:20 +0300
 description: Soft description. # Add post description (optional)
 img: workflow.jpg # Add image post (optional)
 fig-caption: Figcaption # Add figcaption (optional)
