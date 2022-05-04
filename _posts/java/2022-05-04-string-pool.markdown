@@ -1,7 +1,7 @@
 ---
 layout: post
 title: String Pool
-date: 2022-05-04 13:32:20 +0300
+date: 2022-04-04 13:32:20 +0300
 description: Soft description. # Add post description (optional)
 img: java/string_pool.jpg # Add image post (optional)
 fig-caption: Figcaption # Add figcaption (optional)
