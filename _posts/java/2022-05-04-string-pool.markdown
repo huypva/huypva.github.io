@@ -28,7 +28,7 @@ Compare str1==str2: true
 
 > return true, str1 và str2 tham khảo đến 1 object trong String constant pool.
 
-- Tạo `String` bằng `String str3 = new String("abc")`
+- Tạo **String** bằng *String str3 = new String("abc");*
     - Tạo một object trong String pool
     - Tạo thêm một object trong vùng nhớ Heap, và tham khảo đến object trong String pool
 
@@ -46,7 +46,7 @@ Compare str3==str4: false
 
 > return false, bởi vì str3 tham khảo đến object ngoài pool(non-pool).
 
-- So sánh giá trị 2 biến `String` bằng toán tử `equal`
+- So sánh giá trị 2 biến **String** bằng toán tử **equal**
 
 {% highlight java %}
 System.out.println("Compare value str1.equals(str3): " + (str1.equals(str3)));

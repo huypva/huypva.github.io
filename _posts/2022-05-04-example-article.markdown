@@ -20,7 +20,7 @@ categories: [Category1]
 * Gạch đầu dòng 1
 * Gạch đầu dòng 2
 
-`In đậm` một vài từ.
+**Bold** và *Italic* một vài từ.
 
 Code
 {% highlight ruby %}
