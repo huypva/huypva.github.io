@@ -8,10 +8,10 @@ fig-caption: Figcaption # Add figcaption (optional)
 tags: [String, Java]
 categories: [Java]
 ---
-Giải thích hoạt động của kiểu dữ liệu `String` trong Java.
+Giải thích hoạt động của kiểu dữ liệu **String** trong Java.
 
 
-- Tạo `String` bằng `String str1 = "abc"`
+- Tạo **String** bằng *String str1 = "abc";*
     - JMV sẽ kiểm tra và tạo mới một object nếu chưa có trong String pool.
 
 {% highlight java %}
