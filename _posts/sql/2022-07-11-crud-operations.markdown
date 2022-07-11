@@ -15,22 +15,23 @@ Sử dụng các lệnh CRUD trong sql
 Tạo một table
 {% highlight sql %}
 CREATE TABLE CardType (
-`card_type` tinyint(8) PRIMARY KEY,
-`description` varchar(64)
+  `card_type` tinyint(8) PRIMARY KEY,
+  `description` varchar(64)
 );
+
 CREATE TABLE BIN (
-bin int(11) PRIMARY KEY,
-card_network varchar(64),
-card_type tinyint(8),
-INDEX card_network (`card_network`),
-FOREIGN KEY (card_type) REFERENCES CardType(card_type)
+  `bin` int(11) PRIMARY KEY,
+  `card_network` varchar(64),
+  `card_type` tinyint(8),
+  INDEX card_network (`card_network`),
+  FOREIGN KEY (card_type) REFERENCES CardType(card_type)
 );
 {% endhighlight %}
 
 Thêm dữ liệu vào bảng
 {% highlight sql %}
-INSERT INTO CardType (`card_type`, `description`) VALUES
-(1, 'Debit card'), (2, 'Credit card');
+INSERT INTO CardType (`card_type`, `description`) VALUES (1, 'Debit card'), (2, 'Credit card');
+
 INSERT INTO BIN(`bin`, `card_network`, `card_type`) VALUES
 (469174, 'Visa', 2), (53035843, 'MasterCard', 1), (47738927, 'Visa', 2), (45587232, 'Visa', 1);
 {% endhighlight %}
