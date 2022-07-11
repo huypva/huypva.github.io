@@ -7,7 +7,8 @@ img: sql/crud.png
 tags: [SQL]
 categories: [SQL]
 ---
-Các lệnh CRUD trong sql
+
+Sử dụng các lệnh CRUD trong sql
 
 - **C**reate
 
