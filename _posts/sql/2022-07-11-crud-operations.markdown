@@ -11,8 +11,8 @@ Các lệnh CRUD trong sql
 
 - **C**reate
 
-Tạo table CardType, BIN
-{% highlight mysql %}
+Tạo một table
+{% highlight sql %}
 CREATE TABLE CardType (
 `card_type` tinyint(8) PRIMARY KEY,
 `description` varchar(64)
@@ -26,7 +26,7 @@ FOREIGN KEY (card_type) REFERENCES CardType(card_type)
 );
 {% endhighlight %}
 
-Insert dữ liệu
+Thêm dữ liệu vào bảng
 {% highlight sql %}
 INSERT INTO CardType (`card_type`, `description`) VALUES
 (1, 'Debit card'), (2, 'Credit card');
@@ -49,7 +49,7 @@ SELECT * FROM BIN;
 | 53035843 | MasterCard   | 1         |
 
 - **U**pdate
-
+Cập nhập giá trị trong bảng
 {% highlight sql %}
 mysql> UPDATE BIN SET card_type = 1 WHERE bin=469174;
 Query OK, 1 row affected (0.16 sec)
@@ -67,7 +67,7 @@ Kết quả sau UPDATE
 
 
 - **D**elete
-
+    Xóa dòng trong bảng
 {% highlight sql %}
 mysql> DELETE FROM BIN WHERE bin = 47738927;
 Query OK, 1 row affected (0.02 sec)
