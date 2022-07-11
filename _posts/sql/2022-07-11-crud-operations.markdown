@@ -9,9 +9,9 @@ categories: [SQL]
 ---
 Các lệnh CRUD trong sql
 
-- *C*read
+- **Cread**
 
-Tạo table `CardType`, `BIN`
+Tạo table CardType, BIN
 {% highlight mysql %}
 CREATE TABLE CardType (
 `card_type` tinyint(8) PRIMARY KEY,
@@ -26,10 +26,28 @@ FOREIGN KEY (card_type) REFERENCES CardType(card_type)
 );
 {% endhighlight %}
 
-Insert data
-{% highlight mysql %}
+Insert dữ liệu
+{% highlight sql %}
 INSERT INTO CardType (`card_type`, `description`) VALUES
 (1, 'Debit card'), (2, 'Credit card');
 INSERT INTO BIN(`bin`, `card_network`, `card_type`) VALUES
 (469174, 'Visa', 2), (53035843, 'MasterCard', 1), (47738927, 'Visa', 2), (45587232, 'Visa', 1);
 {% endhighlight %}
+
+- **Read**
+
+Sử dụng command SELECT để lấy dữ liệu từ một bảng
+{% highlight sql %}
+SELECT * FROM BIN;
+{% endhighlight %}
+
+| bin      | card_network | card_type |
+|----------|--------------|-----------|
+| 469174   | Visa         | 2         |
+| 45587232 | Visa         | 1         |
+| 47738927 | Visa         | 2         |
+| 53035843 | MasterCard   | 1         |
+
+
+
+
