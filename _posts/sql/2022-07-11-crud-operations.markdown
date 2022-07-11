@@ -9,7 +9,7 @@ categories: [SQL]
 ---
 Các lệnh CRUD trong sql
 
-- **Cread**
+- **C**reate
 
 Tạo table CardType, BIN
 {% highlight mysql %}
@@ -34,7 +34,7 @@ INSERT INTO BIN(`bin`, `card_network`, `card_type`) VALUES
 (469174, 'Visa', 2), (53035843, 'MasterCard', 1), (47738927, 'Visa', 2), (45587232, 'Visa', 1);
 {% endhighlight %}
 
-- **Read**
+- **R**ead
 
 Sử dụng command SELECT để lấy dữ liệu từ một bảng
 {% highlight sql %}
@@ -48,6 +48,36 @@ SELECT * FROM BIN;
 | 47738927 | Visa         | 2         |
 | 53035843 | MasterCard   | 1         |
 
+- **U**pdate
+
+{% highlight sql %}
+mysql> UPDATE BIN SET card_type = 1 WHERE bin=469174;
+Query OK, 1 row affected (0.16 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+{% endhighlight %}
+
+Kết quả sau UPDATE
+
+| bin      | card_network | card_type |
+|----------|--------------|-----------|
+| 469174   | Visa         | 1         |
+| 45587232 | Visa         | 1         |
+| 47738927 | Visa         | 2         |
+| 53035843 | MasterCard   | 1         |
 
 
+- **D**elete
+
+{% highlight sql %}
+mysql> DELETE FROM BIN WHERE bin = 47738927;
+Query OK, 1 row affected (0.02 sec)
+{% endhighlight %}
+
+Kết quả sau DELETE
+
+| bin      | card_network | card_type |
+|----------|--------------|-----------|
+| 469174   | Visa         | 1         |
+| 45587232 | Visa         | 1         |
+| 53035843 | MasterCard   | 1         |
 
