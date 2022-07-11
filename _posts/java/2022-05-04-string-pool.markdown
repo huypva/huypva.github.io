@@ -4,7 +4,6 @@ title: String Pool
 date: 2022-05-04 10:00:20 +0700
 description: Soft description. # Add post description (optional)
 img: java/string_pool.png # Add image post (optional)
-fig-caption: # Add figcaption (optional)
 tags: [String, Java]
 categories: [Java]
 ---
