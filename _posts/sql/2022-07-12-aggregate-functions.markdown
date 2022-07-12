@@ -63,3 +63,15 @@ mysql> SELECT SUM(bin) FROM BIN;
 +-----------+
 1 row in set (0.00 sec)
 {% endhighlight %}
+
+Sử dụng chung với **GROUP BY**
+{% highlight sql %}
+mysql> SELECT card_type,SUM(bin) FROM BIN GROUP BY card_type;
++-----------+----------+
+| card_type | SUM(bin) |
++-----------+----------+
+|         1 | 98623075 |
+|         2 | 48208101 |
++-----------+----------+
+2 rows in set (0.00 sec)
+{% endhighlight %}
