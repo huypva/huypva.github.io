@@ -23,14 +23,13 @@
   padding: 0;
   margin: 0;
   max-height: 500px;
-  background-color: $lightgray;
+  background-color: #FFFFFF; //$lightgray;
+  display: block;
+  text-align: center;
   overflow: hidden;
   figure {
     position: relative;
     margin: 0;
-    display: block;
-    text-align: center;
-    background-color: $lightgray;
   }
   figcaption {
     position: absolute;
