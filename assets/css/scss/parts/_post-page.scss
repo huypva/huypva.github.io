@@ -28,6 +28,9 @@
   figure {
     position: relative;
     margin: 0;
+    display: block;
+    text-align: center;
+    background-color: $lightgray;
   }
   figcaption {
     position: absolute;
@@ -41,8 +44,8 @@
     font-size: 10px;
   }
   .page-image {
-    width: 100%;
-//     height: 100%;
+//     width: 100%;
+    height: 100%;
   }
 }
 
