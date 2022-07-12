@@ -10,7 +10,8 @@ categories: [SQL]
 
 Mô tả các thao tác tổng hợp trên tập giá trị, thường được sử dụng với **GROUP BY** để group các giá trị trong một tập dữ liệu
 
-Tạo table BIN và insert data sau:
+Tạo table BIN và insert data sau
+
 | bin      | card_network | card_type |
 |----------|--------------|-----------|
 | 469174   | Visa         | 2         |
