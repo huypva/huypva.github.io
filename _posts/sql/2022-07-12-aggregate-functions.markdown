@@ -32,7 +32,7 @@ mysql> SELECT AVG(bin) FROM BIN;
 
 - **COUNT()** - Đếm số lượng row trong tập dữ liệu
 {% highlight sql %}
-mysql> SELECT COUNT(*) FROM BIN;
+mysql> SELECT card_network, COUNT(*) FROM BIN;
 +----------+
 | COUNT(*) |
 +----------+
