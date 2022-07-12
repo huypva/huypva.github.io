@@ -3,7 +3,7 @@ layout: post
 title: Aggregate Fundtions
 date: 2022-07-12 09:00:20 +0700
 description: Soft description
-img: sql/crud.png
+img: sql/aggregate_function.png
 tags: [SQL]
 categories: [SQL]
 ---
@@ -18,7 +18,7 @@ Tạo table BIN và insert data sau:
 | 47738927 | Visa         | 2         |
 | 53035843 | MasterCard   | 1         |
 
-- **AVG(expr)** - Lấy giá trị trung bình các row trong tập dữ liệu
+- **AVG()** - Lấy giá trị trung bình các row trong tập dữ liệu
 {% highlight sql %}
 mysql> SELECT AVG(bin) FROM BIN;
 +---------------+
@@ -29,7 +29,7 @@ mysql> SELECT AVG(bin) FROM BIN;
 1 row in set (0.01 sec)
 {% endhighlight %}
 
-- **COUNT**(expr) - Đếm số lượng row trong tập dữ liệu
+- **COUNT()** - Đếm số lượng row trong tập dữ liệu
 {% highlight sql %}
 mysql> SELECT COUNT(*) FROM BIN;
 +----------+
@@ -40,7 +40,7 @@ mysql> SELECT COUNT(*) FROM BIN;
 1 row in set (0.01 sec)
 {% endhighlight %}
 
-- **MIN**(expr), **MAX**(expr) - Lấy giá trị nhỏ nhất, lớn nhất của tập dữ liệu
+- **MIN()**, **MAX()** - Lấy giá trị nhỏ nhất, lớn nhất của tập dữ liệu
 
 {% highlight sql %}
 mysql> SELECT MIN(bin) FROM BIN;
@@ -52,7 +52,7 @@ mysql> SELECT MIN(bin) FROM BIN;
 1 row in set (0.01 sec)
 {% endhighlight %}
 
-- **SUM**(expr) - Tổng giá trị tất cả các dòng trong tập dữ liệu
+- **SUM()** - Tổng giá trị tất cả các dòng trong tập dữ liệu
 
 {% highlight sql %}
 mysql> SELECT SUM(bin) FROM BIN;
