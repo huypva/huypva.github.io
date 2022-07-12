@@ -10,6 +10,7 @@ categories: [SQL]
 
 Mô tả các thao tác tổng hợp trên tập giá trị, thường được sử dụng với **GROUP BY** để group các giá trị trong một tập dữ liệu
 
+Tạo table BIN và insert data sau:
 | bin      | card_network | card_type |
 |----------|--------------|-----------|
 | 469174   | Visa         | 2         |
@@ -17,8 +18,7 @@ Mô tả các thao tác tổng hợp trên tập giá trị, thường được 
 | 47738927 | Visa         | 2         |
 | 53035843 | MasterCard   | 1         |
 
-- **avg**(expr) 
-    Lấy giá trị trung bình các row trong tập dữ liệu
+- **AVG(expr)** - Lấy giá trị trung bình các row trong tập dữ liệu
 {% highlight sql %}
 mysql> SELECT AVG(bin) FROM BIN;
 +---------------+
@@ -29,7 +29,7 @@ mysql> SELECT AVG(bin) FROM BIN;
 1 row in set (0.01 sec)
 {% endhighlight %}
 
-- **COUNT** Đếm số lượng row trong tập dữ liệu
+- **COUNT**(expr) - Đếm số lượng row trong tập dữ liệu
 {% highlight sql %}
 mysql> SELECT COUNT(*) FROM BIN;
 +----------+
@@ -40,7 +40,7 @@ mysql> SELECT COUNT(*) FROM BIN;
 1 row in set (0.01 sec)
 {% endhighlight %}
 
-- **MIN**, **MAX** Lấy giá trị nhỏ nhất, lớn nhất của tập dữ liệu
+- **MIN**(expr), **MAX**(expr) - Lấy giá trị nhỏ nhất, lớn nhất của tập dữ liệu
 
 {% highlight sql %}
 mysql> SELECT MIN(bin) FROM BIN;
@@ -52,7 +52,7 @@ mysql> SELECT MIN(bin) FROM BIN;
 1 row in set (0.01 sec)
 {% endhighlight %}
 
-- **SUM** Tổng giá trị tất cả các dòng trong tập dữ liệu
+- **SUM**(expr) - Tổng giá trị tất cả các dòng trong tập dữ liệu
 
 {% highlight sql %}
 mysql> SELECT SUM(bin) FROM BIN;
@@ -62,9 +62,4 @@ mysql> SELECT SUM(bin) FROM BIN;
 | 146831176 |
 +-----------+
 1 row in set (0.00 sec)
-{% endhighlight %}
-
-
-
-{% highlight sql %}
 {% endhighlight %}
