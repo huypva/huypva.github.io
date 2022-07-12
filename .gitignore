@@ -81,3 +81,8 @@ nb-configuration.xml
 
 #gradle
 .nb-gradle/
+
+# jekyll
+.jekyll-cache/
+_site
+Gemfile.lock
