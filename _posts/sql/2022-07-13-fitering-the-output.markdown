@@ -69,3 +69,15 @@ mysql> SELECT * FROM BIN WHERE bin like '45%';
 mysql> SELECT * FROM BIN WHERE bin like '45_';
 Empty set (0.01 sec)
 {% endhighlight %}
+
+- **AND**, **OR** - Các phép kết hợp
+{% highlight sql %}
+mysql> SELECT * FROM BIN WHERE card_network='Visa' AND card_type!=1;
++----------+--------------+-----------+
+| bin      | card_network | card_type |
++----------+--------------+-----------+
+|   469174 | Visa         |         2 |
+| 47738927 | Visa         |         2 |
++----------+--------------+-----------+
+2 rows in set (0.00 sec)
+{% endhighlight %}
