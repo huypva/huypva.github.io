@@ -49,7 +49,6 @@ mysql> SELECT * FROM BIN WHERE bin IN (45587232, 47738927);
 mysql> SELECT * FROM BIN WHERE card_network IS NULL;
 Empty set (0.02 sec)
 {% endhighlight %}
-{% highlight sql %}
 
 - **LIKE()** - Lấy theo pattern
 
