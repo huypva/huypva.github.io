@@ -3,83 +3,113 @@ layout: post
 title: Join Tables
 date: 2022-07-11 12:00:20 +0700
 description: Soft description
-img: sql/crud.png
+img: sql/join.png
 tags: [SQL]
 categories: [SQL]
 ---
 
-Sử dụng các lệnh CRUD trong sql
+Join 2 table trong SQL
 
-- **C**reate
+Cho 2 table sau
+{% highlight sql %}
+Table BIN                                             Table CardType
++----------+--------------+-----------+               +-----------+--------------------+
+| bin      | card_network | card_type |               | type | description        |
++----------+--------------+-----------+               +-----------+--------------------+
+|   469174 | Visa         |         2 |               |         1 | Debit card         |
+| 45587232 | Visa         |         1 |               |         2 | Credit card        |
+| 47738927 | Visa         |         2 |               |         3 | Domestic bank card |
+| 53035843 | MasterCard   |         1 |               +-----------+--------------------+                            
+|   970415 | VietinBank   |         4 |
++----------+--------------+-----------+
+{% endhighlight %}
+
+- **INNER JOIN** hay **JOIN** - Lấy tập dữ liệu nằm trong cả 2 table
 
 Tạo một table
 {% highlight sql %}
-CREATE TABLE CardType (
-  `card_type` tinyint(8) PRIMARY KEY,
-  `description` varchar(64)
-);
-
-CREATE TABLE BIN (
-  `bin` int(11) PRIMARY KEY,
-  `card_network` varchar(64),
-  `card_type` tinyint(8),
-  INDEX card_network (`card_network`),
-  FOREIGN KEY (card_type) REFERENCES CardType(card_type)
-);
+mysql> SELECT * FROM BIN AS a JOIN CardType AS b ON a.card_type=b.type;
++----------+--------------+-----------+------+-------------+
+| bin      | card_network | card_type | type | description |
++----------+--------------+-----------+------+-------------+
+| 45587232 | Visa         |         1 |    1 | Debit card  |
+| 53035843 | MasterCard   |         1 |    1 | Debit card  |
+|   469174 | Visa         |         2 |    2 | Credit card |
+| 47738927 | Visa         |         2 |    2 | Credit card |
++----------+--------------+-----------+------+-------------+
+4 rows in set (0.41 sec)
 {% endhighlight %}
 
-Thêm dữ liệu vào bảng
+- **LEFT JOIN** - Lấy dữ liệu theo table bên trái, giá trị table bên phải nếu không có thì có giá trị NULL
 {% highlight sql %}
-INSERT INTO CardType (`card_type`, `description`) VALUES (1, 'Debit card'), (2, 'Credit card');
-
-INSERT INTO BIN(`bin`, `card_network`, `card_type`) VALUES
-(469174, 'Visa', 2), (53035843, 'MasterCard', 1), (47738927, 'Visa', 2), (45587232, 'Visa', 1);
+mysql> SELECT * FROM BIN AS a LEFT JOIN CardType AS b ON a.card_type=b.type;
++----------+--------------+-----------+------+-------------+
+| bin      | card_network | card_type | type | description |
++----------+--------------+-----------+------+-------------+
+|   469174 | Visa         |         2 |    2 | Credit card |
+|   970415 | VietinBank   |         4 | NULL | NULL        |
+| 45587232 | Visa         |         1 |    1 | Debit card  |
+| 47738927 | Visa         |         2 |    2 | Credit card |
+| 53035843 | MasterCard   |         1 |    1 | Debit card  |
++----------+--------------+-----------+------+-------------+
+5 rows in set (0.02 sec)
 {% endhighlight %}
 
-- **R**ead
-
-Sử dụng command SELECT để lấy dữ liệu từ một bảng
+- **RIGHT JOIN** - Ngược lại với LEFT JOIN, lấy dữ theo table bên phải, giá trị table bên trái nếu không có thì có giá trị NULL
 {% highlight sql %}
-SELECT * FROM BIN;
+mysql> SELECT * FROM BIN AS a RIGHT JOIN CardType AS b ON a.card_type=b.type;
++----------+--------------+-----------+------+--------------------+
+| bin      | card_network | card_type | type | description        |
++----------+--------------+-----------+------+--------------------+
+| 45587232 | Visa         |         1 |    1 | Debit card         |
+| 53035843 | MasterCard   |         1 |    1 | Debit card         |
+|   469174 | Visa         |         2 |    2 | Credit card        |
+| 47738927 | Visa         |         2 |    2 | Credit card        |
+|     NULL | NULL         |      NULL |    3 | Domestic bank card |
++----------+--------------+-----------+------+--------------------+
+5 rows in set (0.01 sec)
 {% endhighlight %}
 
-| bin      | card_network | card_type |
-|----------|--------------|-----------|
-| 469174   | Visa         | 2         |
-| 45587232 | Visa         | 1         |
-| 47738927 | Visa         | 2         |
-| 53035843 | MasterCard   | 1         |
-
-- **U**pdate
-Cập nhập giá trị trong bảng
+- **FULL JOIN** - Lấy tất cả giá trị 2 table, nếu không tìm thấy giá trị phù hợp ở table còn lại thì giá trị đó NULL
+ 
+Trong MySql có thể sử dụng UNION kết hợp 2 kết quả LEFT JOIN và RIGHT JOIN 
 {% highlight sql %}
-mysql> UPDATE BIN SET card_type = 1 WHERE bin=469174;
-Query OK, 1 row affected (0.16 sec)
-Rows matched: 1  Changed: 1  Warnings: 0
+mysql> (SELECT * FROM BIN LEFT JOIN CardType ON card_type=type) UNION (SELECT * FROM BIN RIGHT JOIN CardType ON card_type=type);
++----------+--------------+-----------+------+--------------------+
+| bin      | card_network | card_type | type | description        |
++----------+--------------+-----------+------+--------------------+
+|   469174 | Visa         |         2 |    2 | Credit card        |
+|   970415 | VietinBank   |         4 | NULL | NULL               |
+| 45587232 | Visa         |         1 |    1 | Debit card         |
+| 47738927 | Visa         |         2 |    2 | Credit card        |
+| 53035843 | MasterCard   |         1 |    1 | Debit card         |
+|     NULL | NULL         |      NULL |    3 | Domestic bank card |
++----------+--------------+-----------+------+--------------------+
+6 rows in set (0.05 sec)
 {% endhighlight %}
 
-Kết quả sau UPDATE
+- **CROSS JOIN** - Giống như JOIN, chỉ là không có điều kiện join (ON)
 
-| bin      | card_network | card_type |
-|----------|--------------|-----------|
-| 469174   | Visa         | 1         |
-| 45587232 | Visa         | 1         |
-| 47738927 | Visa         | 2         |
-| 53035843 | MasterCard   | 1         |
-
-
-- **D**elete
-    Xóa dòng trong bảng
 {% highlight sql %}
-mysql> DELETE FROM BIN WHERE bin = 47738927;
-Query OK, 1 row affected (0.02 sec)
+SELECT * FROM BIN,CardType;
++----------+--------------+-----------+------+--------------------+
+| bin      | card_network | card_type | type | description        |
++----------+--------------+-----------+------+--------------------+
+|   469174 | Visa         |         2 |    1 | Debit card         |
+|   970415 | VietinBank   |         4 |    1 | Debit card         |
+| 45587232 | Visa         |         1 |    1 | Debit card         |
+| 47738927 | Visa         |         2 |    1 | Debit card         |
+| 53035843 | MasterCard   |         1 |    1 | Debit card         |
+|   469174 | Visa         |         2 |    2 | Credit card        |
+|   970415 | VietinBank   |         4 |    2 | Credit card        |
+| 45587232 | Visa         |         1 |    2 | Credit card        |
+| 47738927 | Visa         |         2 |    2 | Credit card        |
+| 53035843 | MasterCard   |         1 |    2 | Credit card        |
+|   469174 | Visa         |         2 |    3 | Domestic bank card |
+|   970415 | VietinBank   |         4 |    3 | Domestic bank card |
+| 45587232 | Visa         |         1 |    3 | Domestic bank card |
+| 47738927 | Visa         |         2 |    3 | Domestic bank card |
+| 53035843 | MasterCard   |         1 |    3 | Domestic bank card |
++----------+--------------+-----------+------+--------------------+
+15 rows in set (0.02 sec)
 {% endhighlight %}
-
-Kết quả sau DELETE
-
-| bin      | card_network | card_type |
-|----------|--------------|-----------|
-| 469174   | Visa         | 1         |
-| 45587232 | Visa         | 1         |
-| 53035843 | MasterCard   | 1         |
-
