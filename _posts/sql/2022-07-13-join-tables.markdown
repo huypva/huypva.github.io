@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Join Tables
-date: 2022-07-11 12:00:20 +0700
+date: 2022-07-13 12:00:20 +0700
 description: Soft description
 img: sql/join.png
 tags: [SQL]
