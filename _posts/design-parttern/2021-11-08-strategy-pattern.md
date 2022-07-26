@@ -6,7 +6,6 @@ description: Pattern tạo ra một instance duy nhất của một class
 img: design_pattern/strategy_icon.png
 tags: [Design Pattern, Java]
 categories: [Design Pattern]
-source: https://github.com/huypva/java-strategy-pattern-example
 ---
 
 ## Lý thuyết
@@ -16,7 +15,7 @@ source: https://github.com/huypva/java-strategy-pattern-example
 - Class diagram như sau:
 
 <div align="center">
-    <img src="../assets/images/design_pattern/strategy_pattern.png"/>
+    <img src="/assets/img/design_pattern/strategy_pattern.png"/>
 </div>
 
   - Strategy: định nghĩa chức năng xử lý
