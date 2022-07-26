@@ -6,6 +6,7 @@ description: Pattern tạo ra một instance duy nhất của một class
 img: design_pattern/singleton.png
 tags: [Design Pattern, Java]
 categories: [Design Pattern]
+source: https://github.com/huypva/singleton-pattern-example
 ---
 
 - *Singleton* là pattern tạo ra một instance duy nhất của một class
