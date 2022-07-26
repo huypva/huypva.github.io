@@ -3,7 +3,7 @@ layout: post
 title: Java - Initialization block
 date: 2021-08-24 10:00:20 +0700
 description: Giải thích Initialization block trong Java
-img: design_pattern/singleton.png
+img: spring_boot/initialization-spring-boot.png
 tags: [Java]
 categories: [Java]
 source:  https://github.com/huypva/initialization-block-example
@@ -23,7 +23,6 @@ public class InitializationBlockExample {
   }
 
   public static void main(String[] args) {
-    InitializationBlockExample ibe = new InitializationBlockExample();
     InitializationBlockExample ibe = new InitializationBlockExample();
   }
 }
