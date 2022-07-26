@@ -4,8 +4,8 @@ title: Singleton Pattern
 date: 2021-08-26 10:00:20 +0700
 description: Pattern tạo ra một instance duy nhất của một class
 img: design_pattern/singleton.png
-tags: [String, Java]
-categories: [Java]
+tags: [Design Pattern, Java]
+categories: [Design Pattern]
 ---
 
 - *Singleton* là pattern tạo ra một instance duy nhất của một class
