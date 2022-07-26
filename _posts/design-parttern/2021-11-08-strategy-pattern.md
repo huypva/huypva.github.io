@@ -12,7 +12,7 @@ categories: [Design Pattern]
 
 - Mục đích *Strategy Pattern* là tách rời xử lý chức năng ra khỏi đối tượng, mỗi thuật toán xử lý trên một class khác nhau, và lựa chọn giải thuật khi thực thi chương trình
 
-- Class diagram như sau:
+- Class diagram như sau
 
 <div align="center">
     <img src="/assets/img/design_pattern/strategy_pattern.png"/>
