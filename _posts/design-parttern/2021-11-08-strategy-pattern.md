@@ -24,7 +24,7 @@ categories: [Design Pattern]
 
 ## Demo
 
-- Code example [ở đây](https://github.com/huypva/java-strategy-pattern-example)
+- Code example is [here](https://github.com/huypva/strategy-pattern-example)
 
 ## Reference
 
