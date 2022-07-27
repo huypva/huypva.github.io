@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Spring Boot - Ratelimit with Resilience4j
+title: Spring Boot - Rate Limiting with Resilience4j
 date: 2021-12-15 10:00:20 +0700
-description: Hướng dẫn áp dụng Ratelimit bằng Resilience4j
+description: Hướng dẫn áp dụng Rate Limiting bằng Resilience4j
 img: spring_boot/spring_boot_icon.png
 tags: [Spring Boot, Ratelimit]
 categories: [Spring Boot]
@@ -11,40 +11,37 @@ source: https://github.com/huypva/spring-boot-rate-limit-example
 
 > Hướng dẫn áp dụng Ratelimit bằng Resilience4j
 
-
-- Thêm dependency trong pom.xml
-
+- Thêm dependency trong pom.xml  
 ```xml
-    <!--  resilience4j ratelimit  -->
-    <properties>
-        <spring-cloud.version>2020.0.4</spring-cloud.version>
-    </properties>
+  <!--  resilience4j ratelimit  -->
+  <properties>
+    <spring-cloud.version>2020.0.4</spring-cloud.version>
+  </properties>
+  <dependencies>
+    <!--  spring cloud circuit breaker  -->
+    <dependency>
+      <groupId>io.github.resilience4j</groupId>
+      <artifactId>resilience4j-spring-boot2</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-aop</artifactId>
+    </dependency>
+  </dependencies>
+  <dependencyManagement>
     <dependencies>
-        <!--  spring cloud circuit breaker  -->
-        <dependency>
-            <groupId>io.github.resilience4j</groupId>
-            <artifactId>resilience4j-spring-boot2</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-aop</artifactId>
-        </dependency>
+      <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-dependencies</artifactId>
+        <version>${spring-cloud.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
     </dependencies>
-    <dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>org.springframework.cloud</groupId>
-				<artifactId>spring-cloud-dependencies</artifactId>
-				<version>${spring-cloud.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
+  </dependencyManagement>
 ```
 
-- Thêm config cho ratelimiter
-
+- Thêm config cho ratelimiter  
 ```yaml
 resilience4j.ratelimiter:
   instances:
