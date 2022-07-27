@@ -20,7 +20,7 @@ categories: [Principle]
 
 > YAGNI - You Aren’t Gonna Need It
   
-- Bạn chỉ nên tập trung vào chức năng, yêu cầu hiện tại thay vì giải quyết cho một vấn đề chưa xảy ra, không chắc xảy ra trong tương lai.
+- Bạn chỉ nên tập trung vào chức năng, yêu cầu hiện tại thay vì giải quyết cho một vấn đề chưa xảy ra, không chắc xảy ra trong tương lai
 
 - 90% of features for the future are not used
 
@@ -30,6 +30,6 @@ Nguồn: [extremeprogramming.org](http://www.extremeprogramming.org/rules/early.
 
 > DRY - Don’t Repeat Yourself
 
-- Nguyên tắc này có nghĩa là bạn đừng viết lại đoạn code của bạn.
+- Nguyên tắc này có nghĩa là bạn đừng viết lại đoạn code của bạn
 
-- Nếu một đoạn mã được sử dụng nhiều lần, thì nên đóng gói lại thành một mothod và sử dụng nó bằng cách gọi method đó
+- Nếu một đoạn mã được sử dụng nhiều lần, thì nên đóng gói lại thành một method và sử dụng nó bằng cách gọi method đó
