@@ -20,10 +20,13 @@ layout: default
       <ul class="tags">
         {% assign categories_list = site.categories | sort %}
         {% if categories_list.first[0] == null %}
-        {% for category in categories_list %}
+          {% for category in categories_list %}
         <li><a style="font-size: 12px" href="{{site.baseurl}}/categories#{{ category | cgi_escape }}">{{ category }}</a></li>
-        {% endfor %}
+          {% endfor %}
         {% else %}
+          {% for category in categories_list %}
+        <li><a style="font-size: 12px" href="{{site.baseurl}}/categories#{{ category[0] | cgi_escape }}">{{ category[0] }}</a></li>
+          {% endfor %}
         {% endif %}
         {% assign categories_list = null %}
       </ul>
