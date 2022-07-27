@@ -14,7 +14,7 @@ source: https://github.com/huypva/spring-cloud-sleuth-example
 ## Example
 
 <div align="center">
-    <img src="assets/img/spring_cloud/sleuth_example.png"/>
+    <img src="/assets/img/spring_cloud/sleuth_example.png"/>
 </div>
 
 - Trong ví dụ này bao gồm 3 service
@@ -270,10 +270,10 @@ spring:
 
 - Send request và mở Zipkin UI tại địa chỉ <http://localhost:9411/> lên xem report
 <div align="center">
-    <img src="assets/img/spring_cloud/zipkin_service_b.png"/>
+    <img src="/assets/img/spring_cloud/zipkin_service_b.png"/>
 </div>
 <div align="center">
-    <img src="assets/img/spring_cloud/zipkin_service_c.png"/>
+    <img src="/assets/img/spring_cloud/zipkin_service_c.png"/>
 </div>
 
 - Ngoài ra, có thể sử dụng Jeager server để hiện thị report
@@ -300,10 +300,10 @@ services:
 Test và xem kết quả trên Jeager UI tại địa chỉ <http://localhost:16686/>
 
 <div align="center">
-    <img src="assets/img/spring_cloud/jaeger_a_b.png"/>
+    <img src="/assets/img/spring_cloud/jaeger_a_b.png"/>
 </div>
 <div align="center">
-    <img src="assets/img/spring_cloud/jaeger_a_c.png"/>
+    <img src="/assets/img/spring_cloud/jaeger_a_c.png"/>
 </div>
 
 ## Reference
