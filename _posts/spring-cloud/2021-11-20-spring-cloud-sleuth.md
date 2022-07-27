@@ -5,7 +5,7 @@ date: 2021-11-20 10:00:20 +0700
 description: Hướng dẫn tích hợp Spring Cloud Sleuth trong ứng dụng Spring Boot
 img: spring_cloud/sleuth.png
 tags: [Spring Cloud, MySQL]
-categories: [Spring Cloud]
+categories: [Spring%20Cloud]
 source: https://github.com/huypva/spring-cloud-sleuth-example
 ---
 

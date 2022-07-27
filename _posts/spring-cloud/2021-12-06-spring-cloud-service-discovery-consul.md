@@ -5,7 +5,7 @@ date: 2021-12-06 10:00:20 +0700
 description: Hướng dẫn sử dụng Service Discovery với Consul
 img: spring_boot/spring_boot_icon.png
 tags: [Spring Cloud, Service Discovery]
-categories: [Spring Cloud]
+categories: [Spring%20Cloud]
 source: https://github.com/huypva/spring-boot-service-discovery-consul-example
 ---
 
