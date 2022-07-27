@@ -116,7 +116,7 @@ spring:
 
 Ở đây, ví dụ có thay đổi một số giá trị `value` trong config trên Consul để dễ kiểm tra
 
-![spring_boot_consul](../../assets/images/spring_cloud/consul_configuration.png)
+![spring_boot_consul](../../spring_cloud/consul_configuration.png)
 
 - Kết quả sau khi chạy chương trình
 

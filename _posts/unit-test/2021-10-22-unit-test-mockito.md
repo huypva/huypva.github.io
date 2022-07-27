@@ -3,7 +3,7 @@ layout: post
 title: Spring Boot + Mockito
 date: 2021-10-22 10:00:20 +0700
 description: Hướng dẫn sử dụng Mockito trong SpringBoot application
-img: spring_boot/mockito.png
+img: unit_test/mockito.png
 tags: [Spring Boot, Unit Test, Mockito]
 categories: [Unit Test]
 source: https://github.com/huypva/unit-test-mockito-example
@@ -28,7 +28,7 @@ source: https://github.com/huypva/unit-test-mockito-example
 Trong Spring Boot version 2.2.6 đã có sẵn thư viện cho junit 5
 
 <div align="center">
-    <img src="../assets/images/junit_5_libs.png"/>
+    <img src="/assets/img/junit_5_libs.png"/>
 </div>
 
 ## Mock bean

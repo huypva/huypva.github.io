@@ -143,16 +143,16 @@ $ docker-compose up -d
 
 - Setup Prometheus datasource
 
-![setup ds prometheus](../../assets/images/spring_boot/prometheus_grafana/setup_ds_prometheus.png)
+![setup ds prometheus](/assets/img/spring_boot/prometheus_grafana/setup_ds_prometheus.png)
 
 - Tạo dashboard cho JVM metric bằng cách import id [4701](https://grafana.com/grafana/dashboards/4701)
 
-![jvm_1](../../assets/images/spring_boot/prometheus_grafana/import_jvm_metric_1.png)
-![jvm_2](../../assets/images/spring_boot/prometheus_grafana/import_jvm_metric_2.png)
+![jvm_1](/assets/img/spring_boot/prometheus_grafana/import_jvm_metric_1.png)
+![jvm_2](/assets/img/spring_boot/prometheus_grafana/import_jvm_metric_2.png)
 
 - Dashboard hiển thị như bên dưới
 
-![jmv metrics](../../assets/images/spring_boot/prometheus_grafana/grafana_jvm_metrics.png)
+![jmv metrics](/assets/img/spring_boot/prometheus_grafana/grafana_jvm_metrics.png)
 
 
 ### Dashboard monitor api 
@@ -194,4 +194,4 @@ sum(rate(http_server_requests_seconds_bucket{application="$application", instanc
 histogram_quantile(0.99, sum(rate(http_server_requests_seconds_bucket{application="$application", instance="$instance"}[1m])) by (le, uri))
 ```
 
-![extra metrics](../../assets/images/spring_boot/prometheus_grafana/grafana_extra_metrics.png)
+![extra metrics](/assets/img/spring_boot/prometheus_grafana/grafana_extra_metrics.png)

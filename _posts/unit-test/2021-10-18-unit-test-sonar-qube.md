@@ -3,7 +3,7 @@ layout: post
 title: Spring Boot + Sonar Qube
 date: 2021-10-18 10:00:20 +0700
 description: Hướng dẫn tích hợp SonarQube trong SpringBoot application
-img: spring_boot/sonar_qube.png
+img: unit_test/sonar_qube.png
 tags: [Spring Boot, Unit Test, Sonar Qube]
 categories: [Unit Test]
 source: https://github.com/huypva/unit-test-sonar-qube-example
@@ -71,19 +71,19 @@ networks:
 Open setting account:
 
 <div align="center">
-    <img src="../assets/images/unit_test/sonar_qube/setting.png"/>
+    <img src="/assets/img/unit_test/sonar_qube/setting.png"/>
 </div>
 
 Tạo token:
 
 <div align="center">
-    <img src="../assets/images/unit_test/sonar_qube/create_token.png"/>
+    <img src="/assets/img/unit_test/sonar_qube/create_token.png"/>
 </div>
 
 Lưu lại kết qua token:
 
 <div align="center">
-    <img src="../assets/images/unit_test/sonar_qube/result.png"/>
+    <img src="/assets/img/unit_test/sonar_qube/result.png"/>
 </div>
 
 ## Setup report trong project
