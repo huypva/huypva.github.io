@@ -71,7 +71,7 @@ public interface Supplier<T> {
 @FunctionalInterface
 public interface Consumer<T> {
 
-    void accept(T t);
+  void accept(T t);
 }
 ```
 
