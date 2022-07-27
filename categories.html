@@ -11,7 +11,7 @@ permalink: /categories/
   <ul class="tags">
 <!--  cycles through tag list and creates header row of all tags used in site with accompanying per-tag counts...-->
   {% for this_word in category_words %}
-    <li ><a href="{{ this_word | cgi_escape }}" class="tag">{{ this_word }} <span>({{ site.categories[this_word].size }})</span></a></li>
+    <li ><a href="#{{ this_word | cgi_escape }}" class="tag">{{ this_word }} <span>({{ site.categories[this_word].size }})</span></a></li>
   {% endfor %}
   </ul>
 <!--cycles through tag list and creates subheader for each tag name...-->
