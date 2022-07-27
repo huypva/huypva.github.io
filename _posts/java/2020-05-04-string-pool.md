@@ -1,7 +1,7 @@
 ---
 layout: post
 title: String Pool
-date: 2022-05-04 10:00:20 +0700
+date: 2020-05-04 10:00:20 +0700
 description: Soft description
 img: java/string_pool.png
 tags: [String, Java]

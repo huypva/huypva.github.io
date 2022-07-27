@@ -1,7 +1,7 @@
 ---
 layout: post
 title: CRUD Operations
-date: 2022-07-11 10:00:20 +0700
+date: 2020-07-11 10:00:20 +0700
 description: Soft description
 img: sql/crud.png
 tags: [SQL]

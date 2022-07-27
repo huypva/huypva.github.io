@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Aggregate Functions
-date: 2022-07-12 09:00:20 +0700
+date: 2020-07-12 09:00:20 +0700
 description: Soft description
 img: sql/aggregate-functions.png
 tags: [SQL]
