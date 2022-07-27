@@ -21,7 +21,7 @@ source: https://github.com/huypva/spring-boot-service-discovery-consul-example
 ## Kiến trúc demo
 
 <div align="center">
-    <img src="./assets/img/spring_cloud/consul_example.png"/>
+    <img src="/assets/img/spring_cloud/consul_example.png"/>
 </div>
 
 ## Cài đặt Consul service bằng docker-compose
