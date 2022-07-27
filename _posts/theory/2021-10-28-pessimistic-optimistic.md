@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Consistency
+title: Pessimistic vs Optimistic Lock 
 date: 2021-10-18 10:00:20 +0700
 description: Phân biệt Pessimistic và Optimistic Lock 
 img: theory/pessimistic_optimistic.png
