@@ -6,7 +6,7 @@ description: Giải thích Initialization block trong Java
 img: spring_boot/initialization_spring_boot.png
 tags: [Java]
 categories: [Java]
-source:  https://github.com/huypva/initialization-block-example
+source: https://github.com/huypva/initialization-block-example
 ---
 
 - *Initialization block* là khối code không thuộc method nào, được thực thi trước contructor của class. Mỗi lần khởi tạo đối tượng sẽ được gọi 1 lần.
