@@ -33,8 +33,7 @@ layout: main
 <!--        </div>-->
         <div class="page-share">
           {% for category in page.categories %}
-            {% assign category_words = category | cgi_escape %}
-          <a href="{{site.baseurl}}/categories#{{ category_words }}" class="tag">ABC{{ category_words }}</a>
+          <a href="{{site.baseurl}}/categories#{{ category }}" class="tag">ABC{{ category }}</a>
           {% endfor %}
         </div>
         <div class="page-tag">
