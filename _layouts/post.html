@@ -32,8 +32,8 @@ layout: main
 <!--          <a href="https://plus.google.com/share?url={{ site.url }}{{ page.url }}" title="Share on Google+" rel="nofollow" target="_blank">Google+</a>-->
 <!--        </div>-->
         <div class="page-share">
-          {% for categorie in page.categories %}
-          <a href="{{site.baseurl}}/categories#{{ categorie | strip }}" class="tag">{{ categorie }}</a>
+          {% for category in page.categories %}
+          <a href="{{site.baseurl}}/categories#{{ category | cgi_escape }}" class="tag">{{ category }}</a>
           {% endfor %}
         </div>
         <div class="page-tag">
