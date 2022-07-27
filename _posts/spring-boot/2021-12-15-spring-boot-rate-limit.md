@@ -51,11 +51,10 @@ resilience4j.ratelimiter:
       timeoutDuration: 0
 ```
 
-> Ý nghĩa: Số lượng `limitForPeriod` request trong một khoảng thời gian `limitRefreshPeriod`.
-> timeoutDuration: thời gian đợi sau khi đạt ngưỡng
+>> Ý nghĩa: Số lượng `limitForPeriod` request trong một khoảng thời gian `limitRefreshPeriod`.
+>> timeoutDuration: thời gian đợi sau khi đạt ngưỡng
 
-- Thêm annotation `@RateLimiter` trên method cần ratelimit
-
+- Thêm annotation `@RateLimiter` trên method cần ratelimit  
 ```java
 @RestController
 public class Controller {
