@@ -16,7 +16,7 @@ categories: [Theory]
 
 - Cách thực hiện
 <div align="center">
-    <img src="assets/img/theory/pessimistic.png"/>
+    <img src="/assets/img/theory/pessimistic.png"/>
 </div>    
   
 
@@ -26,7 +26,7 @@ categories: [Theory]
 
 - Cách thực hiện
 <div align="center">
-    <img src="assets/img/theory/optimistic.png"/>
+    <img src="/assets/img/theory/optimistic.png"/>
 </div>  
 
 ## Usage

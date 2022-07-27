@@ -14,7 +14,7 @@ categories: [Theory]
 - Còn với asynchronous thì process sau có thể thực hiện mà không cần chờ process trước đó, sau khi process trước xử lý xong sẽ thông báo kết quả sau cho chương trình
 
 <div align="center">
-    <img src="assets/img/theory/sync_async.png"/>
+    <img src="/assets/img/theory/sync_async.png"/>
 </div>
 
 
@@ -23,13 +23,13 @@ categories: [Theory]
 - Synchronous: các service giao tiếp với nhau thông qua REST/gRPC API. Client sẽ call api và đợi response từ Server
 
 <div align="center">
-    <img src="assets/img/theory/api.png"/>
+    <img src="/assets/img/theory/api.png"/>
 </div>
 
 - Asynchronous: giao tiếp với nhau thông qua message broker như Kafka, RabbitMQ,... thường dùng trong giao tiếp service nội bộ 
 
 <div align="center">
-    <img src="assets/img/theory/message.png"/>
+    <img src="/assets/img/theory/message.png"/>
 </div>
 
 - Với một số api có business logic khá dài
@@ -39,7 +39,7 @@ categories: [Theory]
     + Client định kỳ call Server lấy kết quả của request ban đầu, Server sẽ lấy message từ Cache và response cho Client
     
 <div align="center">
-    <img src="assets/img/theory/long_api.png"/>
+    <img src="/assets/img/theory/long_api.png"/>
 </div>
 
 ## Reference
