@@ -45,8 +45,7 @@ services:
       - '8600:8600/udp'
 ```
 
-- Start Consul bằng command
-
+- Start Consul bằng command  
 ```shell script
 $ docker-compose up -d
 ```
@@ -54,7 +53,7 @@ $ docker-compose up -d
 - Truy cập Consul admin trên browser tại địa chỉ `http://localhost:8500/`
 
 <div align="center">
-    <img src="assets/img/spring_cloud/start.png"/>
+    <img src="assets/img/spring_cloud/consul_start.png"/>
 </div>
 
 ## Tạo services
