@@ -17,13 +17,13 @@ categories: [Theory]
 - Strong Consistency(tính nhất quán mạnh): một cập nhập, thay đổi cần phải được thực hiện trên toàn bộ, sau khi thực hiện thì tất cả các dữ liệu cùng trạng thái trước khi xử lý tiếp theo
 
 <div align="center">
-    <img src="assets/img/theory/strong_consistency.png"/>
+    <img src="/assets/img/theory/strong_consistency.png"/>
 </div>
 
 - Eventual Consitency(tính nhất quán có độ trễ): tại thời điểm cập nhập, có thể có 1 hoặc vài dữ liệu đã cập nhập, một số khác thì chưa. Nhưng sau một khoảng thời gian thì tất cả vẫn có trạng thái giống nhau
 
 <div align="center">
-    <img src="assets/img/theory/eventual_consistency.png"/>
+    <img src="/assets/img/theory/eventual_consistency.png"/>
 </div>
 
 ## Reference
