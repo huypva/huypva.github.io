@@ -4,7 +4,7 @@ title: Spring Cloud + Circuit Breaker with Resilience4j
 date: 2021-12-06 10:00:20 +0700
 description: Hướng dẫn áp dụng Circuit Breaker bằng Resilience4j
 tags: [SpringCloud, Circuit Breaker]
-categories: [Spring%20Cloud]
+categories: [SpringCloud]
 source: https://github.com/huypva/spring-cloud-circuit-breaker-example
 ---
 

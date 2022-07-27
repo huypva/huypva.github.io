@@ -4,8 +4,8 @@ title: Spring Cloud + Configuration with Consul
 date: 2021-09-27 10:00:20 +0700
 description: Hướng dẫn sử dụng Consul configuration trong Spring Boot application
 img: spring_cloud/spring_cloud.png
-tags: [Spring Cloud, Consul]
-categories: [Spring%20Cloud]
+tags: [SpringCloud, Consul]
+categories: [SpringCloud]
 source: https://github.com/huypva/spring-boot-consul-example
 ---
 
