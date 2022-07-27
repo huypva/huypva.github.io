@@ -3,7 +3,7 @@ layout: post
 title: Spring Boot + Sonar Qube
 date: 2021-10-18 10:00:20 +0700
 description: Hướng dẫn tích hợp SonarQube trong SpringBoot application
-img: unit_test/sonar_qube.png
+img: unit_test/sonar_qube/sonar_qube.png
 tags: [Spring Boot, Unit Test, Sonar Qube]
 categories: [Unit Test]
 source: https://github.com/huypva/unit-test-sonar-qube-example
