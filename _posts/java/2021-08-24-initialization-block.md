@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Java - Initialization block
+title: Initialization block
 date: 2021-08-24 10:00:20 +0700
 description: Giải thích Initialization block trong Java
 img: spring_boot/initialization_spring_boot.png
