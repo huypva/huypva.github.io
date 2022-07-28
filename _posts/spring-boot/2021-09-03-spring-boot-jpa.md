@@ -12,7 +12,7 @@ source: https://github.com/huypva/spring-boot-jpa-example
 Hướng dẫn sử dụng jpa giao tiếp database trong Spring Boot
 
 - Thư viện sử dụng  
-  - [spring-data-jpa](https://spring.io/projects/spring-data-jpa)
+  - [spring-data-jpa](https://spring.io/projects/spring-data-jpa){:target="_blank"}
 
 - Định nghĩa dependency trong pom.xml
 

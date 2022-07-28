@@ -12,10 +12,10 @@ source: https://github.com/huypva/spring-boot-prometheus-grafana-example
 > Hướng dẫn monitor Spring Boot application bằng Prometheus và Grafana
 
 - Thư viện sử dụng
-  - [spring-boot-actuator](https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html)
-  - [Micrometer.io](https://micrometer.io/)
-  - [Prometheus](https://prometheus.io/)
-  - [Grafana](https://grafana.com/)
+  - [spring-boot-actuator](https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html){:target="_blank"}
+  - [Micrometer.io](https://micrometer.io/){:target="_blank"}
+  - [Prometheus](https://prometheus.io/){:target="_blank"}
+  - [Grafana](https://grafana.com/){:target="_blank"}
 
 ## Tạo một Spring Boot application 
 
@@ -145,7 +145,7 @@ $ docker-compose up -d
 
 ![setup ds prometheus](/assets/img/spring_boot/prometheus_grafana/setup_ds_prometheus.png)
 
-- Tạo dashboard cho JVM metric bằng cách import id [4701](https://grafana.com/grafana/dashboards/4701)
+- Tạo dashboard cho JVM metric bằng cách import id [4701](https://grafana.com/grafana/dashboards/4701){:target="_blank"}
 
 ![jvm_1](/assets/img/spring_boot/prometheus_grafana/import_jvm_metric_1.png)
 ![jvm_2](/assets/img/spring_boot/prometheus_grafana/import_jvm_metric_2.png)

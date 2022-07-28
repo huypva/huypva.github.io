@@ -24,7 +24,7 @@ categories: [Principle]
 
 - 90% of features for the future are not used
 
-Nguồn: [extremeprogramming.org](http://www.extremeprogramming.org/rules/early.html)
+Nguồn: [extremeprogramming.org](http://www.extremeprogramming.org/rules/early.html){:target="_blank"}
 
 ## DRY Principle
 

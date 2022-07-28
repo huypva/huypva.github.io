@@ -12,7 +12,7 @@ source: https://github.com/huypva/spring-boot-rabbitmq-example
 > Hướng dẫn tích hợp RabbitMQ trong Spring Boot application
 
 - Thư viện sử dụng
-  - [spring-boot-starter-amqp](https://spring.io/guides/gs/messaging-rabbitmq/)
+  - [spring-boot-starter-amqp](https://spring.io/guides/gs/messaging-rabbitmq/){:target="_blank"}
 
 - Thêm dependency trong file pom.xml
 

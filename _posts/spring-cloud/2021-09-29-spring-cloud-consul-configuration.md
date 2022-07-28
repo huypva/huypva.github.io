@@ -74,7 +74,7 @@ Application name: spring-boot-consul
 
 ## Sử dụng configuration với Consul
 
-- Thêm dependency [spring-cloud-starter-consul-config](https://cloud.spring.io/spring-cloud-consul/reference/html/)
+- Thêm dependency [spring-cloud-starter-consul-config](https://cloud.spring.io/spring-cloud-consul/reference/html/){:target="_blank"}
 
 ```xml
 <dependencies>

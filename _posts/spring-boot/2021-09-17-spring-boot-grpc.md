@@ -12,7 +12,7 @@ source: https://github.com/huypva/spring-boot-grpc-example
 > Hướng dẫn xây dựng gRPC service bằng Spring Boot
 
 - Thư viện sử dụng
-  - [grpc-spring-boot-starter](https://github.com/yidongnan/grpc-spring-boot-starter):  Spring Boot starter module for gRPC framework
+  - [grpc-spring-boot-starter](https://github.com/yidongnan/grpc-spring-boot-starter){:target="_blank"}:  Spring Boot starter module for gRPC framework
 
 ## Build proto file 
 - Tạo file proto và thêm trong thư mục /src/main/proto của ứng dụng.

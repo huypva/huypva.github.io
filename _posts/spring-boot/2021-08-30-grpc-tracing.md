@@ -12,9 +12,9 @@ source: https://github.com/huypva/grpc-tracing-example
 > Hướng dẫn tích hợp OpenTracing tracing Grpc API trong Spring Boot application 
 
 Thư viện sử dụng:
-- [grpc-spring-boot-starter](https://github.com/yidongnan/grpc-spring-boot-starter) - Spring Boot starter module for gRPC framework
-- [opentracing-contrib/java-spring-cloud](https://github.com/opentracing-contrib/java-spring-cloud) - OpenTracing instrumentation for Spring Boot
-- [opentracing-contrib/java-grpc](https://github.com/opentracing-contrib/java-grpc) - OpenTracing instrumentation for gRPC
+- [grpc-spring-boot-starter](https://github.com/yidongnan/grpc-spring-boot-starter){:target="_blank"} - Spring Boot starter module for gRPC framework
+- [opentracing-contrib/java-spring-cloud](https://github.com/opentracing-contrib/java-spring-cloud){:target="_blank"} - OpenTracing instrumentation for Spring Boot
+- [opentracing-contrib/java-grpc](https://github.com/opentracing-contrib/java-grpc){:target="_blank"} - OpenTracing instrumentation for gRPC
 
 Định nghĩa dependency trong pom.xml
 ```xml

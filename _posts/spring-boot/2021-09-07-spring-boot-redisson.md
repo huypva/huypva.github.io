@@ -23,7 +23,7 @@ source: https://github.com/huypva/spring-boot-redisson-example
 </dependencies>
 ``` 
 
-Lưu ý: chọn version [redisson-spring-boot-starter](https://github.com/redisson/redisson/tree/master/redisson-spring-boot-starter) tương ứng version Spring Boot
+Lưu ý: chọn version [redisson-spring-boot-starter](https://github.com/redisson/redisson/tree/master/redisson-spring-boot-starter){:target="_blank"} tương ứng version Spring Boot
 
 - Tạo file redisson.yml chứa cấu hình kết nối redis server trong thư mục resouces   
 

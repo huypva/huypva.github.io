@@ -86,7 +86,7 @@ public class Controller {
 
 - Thư viện sử dụng
   + [OpenFeign](https://github.com/OpenFeign/feign){:target="_blank"}: a HTTP client 
-  + [spring-cloud-openfeign](https://spring.io/projects/spring-cloud-openfeign): a REST client for Spring Boot apps
+  + [spring-cloud-openfeign](https://spring.io/projects/spring-cloud-openfeign){:target="_blank"}: a REST client for Spring Boot apps
 
 - Thêm dependency trong file pom.xml
 

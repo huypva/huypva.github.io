@@ -9,7 +9,7 @@ categories: [Spring Cloud]
 source: https://github.com/huypva/spring-cloud-sleuth-example
 ---
 
-> Hướng dẫn tích hợp [Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) trong ứng dụng Spring Boot
+> Hướng dẫn tích hợp [Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth){:target="_blank"} trong ứng dụng Spring Boot
 
 ## Example
 

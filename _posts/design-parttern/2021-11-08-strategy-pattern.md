@@ -24,7 +24,7 @@ categories: [Design Pattern]
 
 ## Demo
 
-- Code example is [here](https://github.com/huypva/strategy-pattern-example)
+- Code example is [here](https://github.com/huypva/strategy-pattern-example){:target="_blank"}
 
 ## Reference
 

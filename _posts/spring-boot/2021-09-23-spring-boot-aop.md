@@ -12,7 +12,7 @@ source: https://github.com/huypva/spring-boot-aop-example
 > Hướng dẫn sử dụng Spring AOP để xử lý cho annotation trong Spring Boot application
 
 - Thư viện sử dụng
-  - [spring-boot-starter-aop](https://docs.spring.io/spring-framework/docs/4.3.15.RELEASE/spring-framework-reference/html/aop.html)
+  - [spring-boot-starter-aop](https://docs.spring.io/spring-framework/docs/4.3.15.RELEASE/spring-framework-reference/html/aop.html){:target="_blank"}
 
 - Thêm dependency trong file pom.xml
 
