@@ -12,6 +12,7 @@ source: https://github.com/huypva/spring-boot-rate-limit-example
 > Hướng dẫn áp dụng Ratelimit bằng Resilience4j
 
 - Thêm dependency trong pom.xml  
+
 ```xml
   <!--  resilience4j ratelimit  -->
   <properties>
@@ -42,6 +43,7 @@ source: https://github.com/huypva/spring-boot-rate-limit-example
 ```
 
 - Thêm config cho ratelimiter  
+
 ```yaml
 resilience4j.ratelimiter:
   instances:
@@ -51,10 +53,11 @@ resilience4j.ratelimiter:
       timeoutDuration: 0
 ```
 
->> Ý nghĩa: Số lượng `limitForPeriod` request trong một khoảng thời gian `limitRefreshPeriod`.
+>> Ý nghĩa: Số lượng ***limitForPeriod*** request trong một khoảng thời gian ***limitRefreshPeriod***.
 >> timeoutDuration: thời gian đợi sau khi đạt ngưỡng
 
-- Thêm annotation `@RateLimiter` trên method cần ratelimit  
+- Thêm annotation ***@RateLimiter*** trên method cần ratelimit  
+
 ```java
 @RestController
 public class Controller {
