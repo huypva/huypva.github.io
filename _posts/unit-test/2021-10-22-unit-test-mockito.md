@@ -12,7 +12,8 @@ source: https://github.com/huypva/unit-test-mockito-example
 > Hướng dẫn sử dụng Mockito trong SpringBoot application
 
 ## Dependency
-- Thêm dependency trong pom.xml để thực hiện UnitTest  
+- Thêm dependency trong pom.xml để thực hiện UnitTest
+
 ```html
 <dependencies>
   <dependency>
