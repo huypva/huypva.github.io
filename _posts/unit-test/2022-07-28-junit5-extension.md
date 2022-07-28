@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Spring Boot + JUnit 5: @SpringBootTest, @SpringExtension vs @MockitoExtension
+title: SpringBootTest, SpringExtension vs MockitoExtension
 date: 2022-07-28 10:00:20 +0700
 description: Giải thích các cách khởi tạo môi trường test
 img: unit_test/junit_5.png
