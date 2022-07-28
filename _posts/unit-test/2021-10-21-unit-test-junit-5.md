@@ -12,8 +12,8 @@ source: https://github.com/huypva/unit-test-junit-5-example
 > Hướng dẫn thực hiện UnitTest trong SpringBoot application
 
 ## Dependency
+- Thêm dependency trong pom.xml để thực hiện UnitTest
 
-- Thêm dependency trong pom.xml để thực hiện UnitTest  
 ```html
 <dependencies>
     <dependency>
@@ -50,8 +50,7 @@ Nếu không bạn có thể add thêm dependency như sau
     - Thêm ***@Import([Class_cần_test].class)*** trên đầu class
     - Sử dụng ***@Autowired*** để lấy bean class cần test 
     
-Ví dụ:
-
+Ví dụ  
 ```java
 @ExtendWith(SpringExtension.class)
 @Import(RandomIdProvider.class)
@@ -70,7 +69,6 @@ class RandomIdProviderTest {
 ```
 
 ## Tạo method test
-
 - Quy tắt đặt tên method test
 > method_StateUnderTest_ExpectedBehavior
 
@@ -83,20 +81,21 @@ Ví dụ: greet_HelloWorldWithId1_ReturnGreeting
 
 Ví dụ  
 ```java
-  @Test
-  void greet_HelloWorldWithId1_ReturnGreeting() {
-    Mockito.when(randomIdProvider.genId()).thenReturn(1);
+@Test
+void greet_HelloWorldWithId1_ReturnGreeting() {
+  Mockito.when(randomIdProvider.genId()).thenReturn(1);
 
-    Greeting valueDefault = new Greeting(1, "Hello World!");
+  Greeting valueDefault = new Greeting(1, "Hello World!");
 
-    Greeting greeting = greetUseCase.greet("World");
-    Assertions.assertThat(valueDefault).usingRecursiveComparison().isEqualTo(greeting);
-  }
+  Greeting greeting = greetUseCase.greet("World");
+  Assertions.assertThat(valueDefault).usingRecursiveComparison().isEqualTo(greeting);
+}
 ```
 
 ## Assertions
 
 - Assert 2 value  
+
 ```java
 import static org.junit.jupiter.api.Assertions.assertEquals;
 //...
@@ -104,6 +103,7 @@ assertEquals(expectValue, actualValue);
 ```
 
 - Assert 2 object  
+
 ```java
 import static org.assertj.core.api.Assertions.assertThat;
 //...
