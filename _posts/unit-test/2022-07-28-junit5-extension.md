@@ -1,6 +1,6 @@
 ---
 layout: post
-title: SpringBootTest, SpringExtension vs MockitoExtension
+title: JUnit5 - @SpringBootTest, @SpringExtension vs @MockitoExtension
 date: 2022-07-28 10:00:20 +0700
 description: Giải thích các cách khởi tạo môi trường test
 img: unit_test/junit_5.png
@@ -11,7 +11,7 @@ source: https://github.com/huypva/junit5-extension-example
 
 > Giải thích các annotation @SpringBootTest, @ExtendWith khi viết unit test trong Spring Boot application
 
-Ví dụ có một project sau
+Ví dụ project sau
 ```java
 @Service
 public class ServiceA {
