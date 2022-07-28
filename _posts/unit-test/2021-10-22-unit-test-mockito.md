@@ -13,8 +13,7 @@ source: https://github.com/huypva/unit-test-mockito-example
 
 ## Dependency
 
-- Thêm dependency trong pom.xml để thực hiện UnitTest
-
+- Thêm dependency trong pom.xml để thực hiện UnitTest  
 ```html
 <dependencies>
   <dependency>
@@ -26,15 +25,13 @@ source: https://github.com/huypva/unit-test-mockito-example
 ```
 
 Trong Spring Boot version 2.2.6 đã có sẵn thư viện cho junit 5
-
 <div align="center">
   <img src="/assets/img/unit_test/junit_5_libs.png"/>
 </div>
 
 ## Mock bean
 
-- Sử dụng annotation `@Mockbean` để mock bean
-
+- Sử dụng annotation ***@Mockbean*** để mock bean  
 ```java
 @ExtendWith(SpringExtension.class)
 class UserCaseTest {
@@ -56,16 +53,14 @@ class UserCaseTest {
 
 ## Mock static class
 
-- Sử dụng `MockedStatic` như sau
-
+- Sử dụng ***MockedStatic*** như sau  
 ```java
   try (MockedStatic<[Class cần mock]> mockedStatic = Mockito.mockStatic([Class cần mock].class); ) {
     //mock function bằng cách sử dụng mockedStatic 
   }
 ```
 
-Ví dụ: Giả sử cần test class `MockStatic` sử dụng static class `StaticClass`
-
+Ví dụ: Giả sử cần test class ***MockStatic*** sử dụng static class ***StaticClass***  
 ```java
 public class MockStatic {
 
@@ -118,12 +113,11 @@ Assertions.assertEquals(2, userCase.returnMethod());
 Mockito.doNothing().when(...);
 ```
 
-Ví dụ:
-
+Ví dụ  
 ```java
-  @Test
-  void voidMethod_() {
-    Mockito.doNothing().when(dataProvider).increase(1);
-    //...
-  }
+@Test
+void voidMethod_() {
+Mockito.doNothing().when(dataProvider).increase(1);
+//...
+}
 ```
