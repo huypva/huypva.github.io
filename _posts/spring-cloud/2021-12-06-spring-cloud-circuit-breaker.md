@@ -60,7 +60,7 @@ public class ServiceAApplication {
 }
 ```
 
-- Tạo OpenFeign client và thêm `@CircuitBreaker`
+- Tạo OpenFeign client và thêm ***@CircuitBreaker***
 
 ```java
 @FeignClient(value = "serviceb", url = "${serviceb.url}")
@@ -91,13 +91,10 @@ public class Controller {
 }
 ```
 
-## Send request test 
-
 ## Ý nghĩa các giá trị config
 
-![](assets/img/spring_cloud/circuit_breaker_state_machine.jpeg)
+![circuit_breaker_state_machine](assets/img/spring_cloud/circuit_breaker_state_machine.jpeg)
 
-  
     - registerHealthIndicator: true
     - failureRateThreshold: ngưỡng tỉ lệ lỗi, lớn hơn hoặc bằng ngưỡng này CircuitBreaker sẽ bật OPEN
     - slowCallDurationThreshold: khoảng thời gian 1 call được gọi là slow
