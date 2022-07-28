@@ -68,7 +68,7 @@ networks:
 
 - Truy cập SonarQube tại địa chỉ http://localhost:9000/ và login theo tài khoản admin/admin
 
-Open setting account:
+Open setting account
 
 <div align="center">
     <img src="/assets/img/unit_test/sonar_qube/setting.png"/>
@@ -80,7 +80,7 @@ Tạo token:
     <img src="/assets/img/unit_test/sonar_qube/create_token.png"/>
 </div>
 
-Lưu lại kết qua token:
+Lưu lại kết quả token
 
 <div align="center">
     <img src="/assets/img/unit_test/sonar_qube/result.png"/>
@@ -91,49 +91,49 @@ Lưu lại kết qua token:
 - Thêm plugin jacoco trong file pom.xml của project
 
 ```xml
-    <properties>
-        <jacoco.version>0.8.6</jacoco.version>
-    </properties>
-    <!--  ...  -->
-    <plugin>
-        <groupId>org.jacoco</groupId>
-        <artifactId>jacoco-maven-plugin</artifactId>
-        <version>${jacoco.version}</version>
-        <executions>
-            <execution>
-                <id>check</id>
-                <phase>test</phase>
-                <goals>
-                    <goal>check</goal>
-                </goals>
-                <configuration>
-                    <rules>
-                        <rule>
-                            <limits>
-                                <limit>
-                                    <counter>LINE</counter>
-                                    <value>COVEREDRATIO</value>
-                                    <minimum>0%</minimum>
-                                </limit>
-                            </limits>
-                        </rule>
-                    </rules>
-                </configuration>
-            </execution>
-            <execution>
-                <goals>
-                    <goal>prepare-agent</goal>
-                </goals>
-            </execution>
-            <execution>
-                <id>generate-code-coverage-report</id>
-                <phase>test</phase>
-                <goals>
-                    <goal>report</goal>
-                </goals>
-            </execution>
-        </executions>
-    </plugin>
+<properties>
+    <jacoco.version>0.8.6</jacoco.version>
+</properties>
+<!--  ...  -->
+<plugin>
+  <groupId>org.jacoco</groupId>
+  <artifactId>jacoco-maven-plugin</artifactId>
+  <version>${jacoco.version}</version>
+  <executions>
+    <execution>
+      <id>check</id>
+      <phase>test</phase>
+      <goals>
+        <goal>check</goal>
+      </goals>
+      <configuration>
+        <rules>
+          <rule>
+            <limits>
+              <limit>
+                <counter>LINE</counter>
+                <value>COVEREDRATIO</value>
+                <minimum>0%</minimum>
+              </limit>
+            </limits>
+          </rule>
+        </rules>
+        </configuration>
+    </execution>
+    <execution>
+      <goals>
+        <goal>prepare-agent</goal>
+      </goals>
+    </execution>
+    <execution>
+      <id>generate-code-coverage-report</id>
+      <phase>test</phase>
+      <goals>
+        <goal>report</goal>
+      </goals>
+    </execution>
+  </executions>
+</plugin>
 ```
 
 - Thêm file lombok.config để bỏ qua lombok khi report SonarQube
