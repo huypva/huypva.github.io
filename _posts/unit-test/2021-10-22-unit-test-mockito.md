@@ -12,7 +12,6 @@ source: https://github.com/huypva/unit-test-mockito-example
 > Hướng dẫn sử dụng Mockito trong SpringBoot application
 
 ## Dependency
-
 - Thêm dependency trong pom.xml để thực hiện UnitTest  
 ```html
 <dependencies>
@@ -24,13 +23,12 @@ source: https://github.com/huypva/unit-test-mockito-example
 </dependencies>
 ```
 
-Trong Spring Boot version 2.2.6 đã có sẵn thư viện cho junit 5
+Trong Spring Boot version 2.2.6 trở lên đã có sẵn thư viện cho junit 5
 <div align="center">
   <img src="/assets/img/unit_test/junit_5_libs.png"/>
 </div>
 
 ## Mock bean
-
 - Sử dụng annotation ***@Mockbean*** để mock bean  
 ```java
 @ExtendWith(SpringExtension.class)
@@ -52,8 +50,8 @@ class UserCaseTest {
 ```
 
 ## Mock static class
-
-- Sử dụng ***MockedStatic*** như sau  
+- Sử dụng ***MockedStatic*** như sau
+  
 ```java
   try (MockedStatic<[Class cần mock]> mockedStatic = Mockito.mockStatic([Class cần mock].class); ) {
     //mock function bằng cách sử dụng mockedStatic 
@@ -89,13 +87,13 @@ class MockStaticTest {
 
 ## Mock return function 
 
-- Giả lập function theo format  
+- Giả lập function theo format
+  
 ```java
 Mockito.when(...).thenReturn(...);
 ```
 
-Ví dụ:
-
+Ví dụ  
 ```java
 @Test
 void returnMethod_Count_Return2() {
@@ -106,7 +104,6 @@ Assertions.assertEquals(2, userCase.returnMethod());
 ```
 
 ## Mock void function
-
 - Giả lập void function theo format
 
 ```java

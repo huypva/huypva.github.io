@@ -13,8 +13,7 @@ source: https://github.com/huypva/unit-test-junit-5-example
 
 ## Dependency
 
-- Thêm dependency trong pom.xml để thực hiện UnitTest
-
+- Thêm dependency trong pom.xml để thực hiện UnitTest  
 ```html
 <dependencies>
     <dependency>
@@ -31,7 +30,7 @@ Trong Spring Boot version 2.2.6 đã có sẵn thư viện cho junit 5
     <img src="/assets/img/unit_test/junit_5_libs.png"/>
 </div>
 
-Nếu không bạn có thể add thêm dependency như sau 
+Nếu không bạn có thể add thêm dependency như sau   
 ```html
 <dependency>
   <groupId>org.junit.jupiter</groupId>
@@ -45,11 +44,11 @@ Nếu không bạn có thể add thêm dependency như sau
 
 - Mỗi class cần thực hiện Unit Test với class test tên có post fix là "Test"
 
-- Thêm **@ExtendWith(SpringExtension.class)** (Thay cho `@RunWith(SpringRunner.class)` của Junit4) trên đầu mỗi class test
+- Thêm ***@ExtendWith(SpringExtension.class)*** (Thay cho ***@RunWith(SpringRunner.class)*** của Junit4) trên đầu mỗi class test
 
 - Lấy bean của class cần test bằng cách
-    - Thêm `@Import([Class_cần_test].class)` trên đầu class
-    - Sử dụng `@Autowired` để lấy bean class cần test 
+    - Thêm ***@Import([Class_cần_test].class)*** trên đầu class
+    - Sử dụng ***@Autowired*** để lấy bean class cần test 
     
 Ví dụ:
 
