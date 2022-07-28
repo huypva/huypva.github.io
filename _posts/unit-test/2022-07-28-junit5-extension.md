@@ -46,7 +46,7 @@ public class Application {
 
 ## @SpringBootTest
 
-- ***@SpringBootTest*** khởi tạo toàn bộ Spring Context bằng cách tìm kiếm class có gắn annotation @SpringBootApplication để thực hiện nó
+- ***@SpringBootTest*** khởi tạo toàn bộ Spring Context bằng cách tìm kiếm class có gắn annotation @SpringBootApplication để thực hiện
 
 Ví dụ
 ```java
@@ -132,7 +132,7 @@ Bean: org.springframework.context.event.internalEventListenerFactory
 Bean: org.springframework.context.event.internalEventListenerProcessor
 ``` 
 
-- Nếu cần test Một bean cần ***@Import*** class đó và sử dụng ***@Autowired*** để lấy bean ra test
+- Sử dụng ***@Import([Class cần test])*** để tạo bean class đó và sử dụng ***@Autowired*** để lấy bean ra test
 
 ```java
 @Import(ServiceA.class)
@@ -184,4 +184,4 @@ class ServiceAMockitoExtensionTest {
 
 - Nếu chỉ muốn unit test logic của method thì chỉ nên sử dụng ***MockitoExtension***, sau đó tạo và giải lập các object để test
 
-- Chỉ nên sử dụng ***SpringExtension*** và ***SpringBootTest*** trong trường hợp muốn integration test một vài component hoặc tất cả component, lúc đó cần thực hiện giải lập các công nghệ xung quanh mà project sử dụng
+- Và chỉ nên sử dụng ***SpringExtension*** và ***SpringBootTest*** trong trường hợp muốn integration test một vài component hoặc tất cả component. Vì ***SpringBootTest*** sẽ khởi tạo toàn bộ Spring context sẽ mất nhiều thời gian nên hạn chế sử dụng
