@@ -17,18 +17,18 @@ source: https://github.com/huypva/unit-test-mockito-example
 
 ```html
 <dependencies>
-    <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-test</artifactId>
-        <scope>test</scope>
-    </dependency>
+  <dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-test</artifactId>
+    <scope>test</scope>
+  </dependency>
 </dependencies>
 ```
 
 Trong Spring Boot version 2.2.6 đã có sẵn thư viện cho junit 5
 
 <div align="center">
-    <img src="/assets/img/junit_5_libs.png"/>
+  <img src="/assets/img/unit_test/junit_5_libs.png"/>
 </div>
 
 ## Mock bean
@@ -47,8 +47,7 @@ class UserCaseTest {
 
   @Test
   void returnMethod() {
-    Mockito.when(dataProvider.getCount())
-        .thenReturn(2);
+    Mockito.when(dataProvider.getCount()).thenReturn(2);
 
     Assertions.assertEquals(2, userCase.returnMethod());
   }
@@ -61,10 +60,7 @@ class UserCaseTest {
 
 ```java
   try (MockedStatic<[Class cần mock]> mockedStatic = Mockito.mockStatic([Class cần mock].class); ) {
-
-      //mock function bằng cách sử dụng mockedStatic 
-
-    
+    //mock function bằng cách sử dụng mockedStatic 
   }
 ```
 
@@ -79,8 +75,7 @@ public class MockStatic {
 }
 ```
 
-Viết unit test như sau:
-
+Viết unit test như sau  
 ```java
 @ExtendWith(SpringExtension.class)
 class MockStaticTest {
@@ -88,10 +83,7 @@ class MockStaticTest {
   @Test
   void doMockStatic() {
     try (MockedStatic<StaticClass> mockedStatic = Mockito.mockStatic(StaticClass.class); ) {
-
-      mockedStatic
-          .when(() -> StaticClass.doStaticMethod(1))
-          .thenReturn("1");
+      mockedStatic.when(() -> StaticClass.doStaticMethod(1)).thenReturn("1");
 
       MockStatic mockStatic = new MockStatic();
       Assertions.assertEquals("Static: 1", mockStatic.doMockStatic());
@@ -102,8 +94,7 @@ class MockStaticTest {
 
 ## Mock return function 
 
-- Giả lập function theo format
-
+- Giả lập function theo format  
 ```java
 Mockito.when(...).thenReturn(...);
 ```
@@ -111,13 +102,12 @@ Mockito.when(...).thenReturn(...);
 Ví dụ:
 
 ```java
-  @Test
-  void returnMethod_Count_Return2() {
-    Mockito.when(dataProvider.getCount())
-        .thenReturn(2);
+@Test
+void returnMethod_Count_Return2() {
+Mockito.when(dataProvider.getCount()).thenReturn(2);
 
-    Assertions.assertEquals(2, userCase.returnMethod());
-  }
+Assertions.assertEquals(2, userCase.returnMethod());
+}
 ```
 
 ## Mock void function
@@ -134,7 +124,6 @@ Ví dụ:
   @Test
   void voidMethod_() {
     Mockito.doNothing().when(dataProvider).increase(1);
-    
     //...
   }
 ```
