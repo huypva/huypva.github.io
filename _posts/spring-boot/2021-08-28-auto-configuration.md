@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Auto-Configuration
+title: Spring Boot Auto-Configuration
 date: 2021-08-28 10:00:20 +0700
 description: Tạo auto configuration trong Spring Boot
 img: spring_boot/spring_boot_icon.png

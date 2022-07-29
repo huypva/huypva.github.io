@@ -3,7 +3,7 @@ layout: post
 title: Spring Boot + Cassandra
 date: 2021-10-14 10:00:20 +0700
 description: Hướng dẫn tích hợp Cassandra trong Spring Boot application
-img: spring_boot/spring_boot_icon.png
+img: spring_boot/spring_boot_cassandra.png
 tags: [Spring Boot, Cassandra]
 categories: [Spring Boot]
 source: https://github.com/huypva/spring-boot-cassandra-example
