@@ -3,7 +3,7 @@ layout: post
 title: Spring Boot - gRPC API
 date: 2021-09-17 10:00:20 +0700
 description: Hướng dẫn xây dựng gRPC service bằng Spring Boot
-img: spring_boot/spring_boot_grpc.png
+img: spring_boot/grpc.png
 tags: [Spring Boot, gRPC]
 categories: [Spring Boot]
 source: https://github.com/huypva/spring-boot-grpc-example

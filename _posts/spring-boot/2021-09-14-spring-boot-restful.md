@@ -3,7 +3,7 @@ layout: post
 title: Spring Boot - RESTful API
 date: 2021-09-14 10:00:20 +0700
 description: Hướng dẫn xây dựng RESTful service bằng Spring Boot
-img: spring_boot/spring_boot_restful.png
+img: spring_boot/restful.png
 tags: [Spring Boot, RESTful]
 categories: [Spring Boot]
 source: https://github.com/huypva/spring-boot-rest-example

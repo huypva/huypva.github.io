@@ -3,7 +3,7 @@ layout: post
 title: Tracing gRPC API by Jaeger
 date: 2021-08-30 10:00:20 +0700
 description: Tracing gRPC API by Jaeger
-img: spring_boot/spring_boot_jeager.png
+img: spring_boot/jeager.png
 tags: [Spring Boot]
 categories: [Spring Boot]
 source: https://github.com/huypva/grpc-tracing-example

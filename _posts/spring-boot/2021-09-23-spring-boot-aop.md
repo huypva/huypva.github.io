@@ -1,9 +1,9 @@
 ---
 layout: post
-title: Spring Boot - AOP
+title: Spring Boot + AOP
 date: 2021-09-23 10:00:20 +0700
 description: Hướng dẫn tạo annotation xử lý AOP trong Spring Boot application
-img: spring_boot/spring_boot_aop.png
+img: spring_boot/aop.png
 tags: [Spring Boot, AOP]
 categories: [Spring Boot]
 source: https://github.com/huypva/spring-boot-aop-example

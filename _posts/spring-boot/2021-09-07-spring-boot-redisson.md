@@ -3,7 +3,7 @@ layout: post
 title: Spring Boot + Redis with Redisson client
 date: 2021-09-07 10:00:20 +0700
 description: Hướng dẫn tích hợp Redis bằng Redisson client trong Spring Boot application
-img: spring_boot/spring_boot_redis.png
+img: spring_boot/redis.png
 tags: [Spring Boot, Redis]
 categories: [Spring Boot]
 source: https://github.com/huypva/spring-boot-redisson-example

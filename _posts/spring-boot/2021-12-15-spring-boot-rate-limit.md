@@ -3,7 +3,7 @@ layout: post
 title: Spring Boot - Rate Limiting with Resilience4j
 date: 2021-12-15 10:00:20 +0700
 description: Hướng dẫn áp dụng Rate Limiting bằng Resilience4j
-img: spring_boot/spring_boot_rate_limiting.png
+img: spring_boot/rate_limiting.png
 tags: [Spring Boot, Ratelimit]
 categories: [Spring Boot]
 source: https://github.com/huypva/spring-boot-rate-limit-example

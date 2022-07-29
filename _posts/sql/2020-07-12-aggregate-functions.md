@@ -1,9 +1,9 @@
 ---
 layout: post
-title: Aggregate Functions
+title: SQL - Aggregate Functions
 date: 2020-07-12 09:00:20 +0700
 description: Soft description
-img: sql/aggregate-functions.png
+img: sql/aggregate_functions.png
 tags: [SQL]
 categories: [SQL]
 ---

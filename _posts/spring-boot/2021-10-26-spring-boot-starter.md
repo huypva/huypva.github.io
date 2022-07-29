@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Spring Boot + Starter
+title: Spring Boot - Starter
 date: 2021-10-26 10:00:20 +0700
 description: Hướng dẫn viết một library Spring Boot Starter
 img: spring_boot/spring_boot_icon.png

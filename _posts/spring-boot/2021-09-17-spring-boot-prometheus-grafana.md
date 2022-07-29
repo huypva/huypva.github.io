@@ -1,9 +1,9 @@
 ---
 layout: post
-title: Spring Boot - Prometheus + Grafana
+title: Spring Boot + Prometheus + Grafana
 date: 2021-09-17 10:00:20 +0700
 description: Hướng dẫn monitor Spring Boot application bằng Prometheus và Grafana
-img: spring_boot/spring_boot_prometheus_grafana.png
+img: spring_boot/prometheus_grafana.png
 tags: [Spring Boot, Monitor, Prometheus, Grafana]
 categories: [Spring Boot]
 source: https://github.com/huypva/spring-boot-prometheus-grafana-example
