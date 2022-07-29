@@ -3,7 +3,7 @@ layout: post
 title: Spring Boot - RabbitMQ
 date: 2021-09-27 10:00:20 +0700
 description: Hướng dẫn tích hợp RabbitMQ trong Spring Boot application
-img: spring_boot/spring_boot_icon.png
+img: spring_boot/spring_boot_rabbitmq.png
 tags: [Spring Boot, RabbitMQ]
 categories: [Spring Boot]
 source: https://github.com/huypva/spring-boot-rabbitmq-example
