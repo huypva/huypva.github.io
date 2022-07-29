@@ -3,7 +3,7 @@ layout: post
 title: Spring Boot + JPA
 date: 2021-08-30 10:00:20 +0700
 description: Hướng dẫn sử dụng jpa giao tiếp database trong Spring Boot
-img: spring_boot/spring_boot_icon.png
+img: spring_boot/spring_boot_jpa.png
 tags: [Spring Boot, MySQL]
 categories: [Spring Boot]
 source: https://github.com/huypva/spring-boot-jpa-example

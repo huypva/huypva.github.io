@@ -3,7 +3,7 @@ layout: post
 title: Spring Boot + Kafka
 date: 2021-09-08 10:00:20 +0700
 description: Hướng dẫn tích hợp Kafka trong Spring Boot application
-img: spring_boot/spring_boot_icon.png
+img: spring_boot/spring_boot_kafka.png
 tags: [Spring Boot, Kafka]
 categories: [Spring Boot]
 source: https://github.com/huypva/spring-boot-kafka-example
