@@ -3,7 +3,7 @@ layout: post
 title: Synchronous vs Asynchronous 
 date: 2021-10-18 10:00:20 +0700
 description: Giải thích synchronous và asynchronous
-img: theory/theory-sync_async_icon
+img: theory/sync_async_icon.png
 tags: [Theory]
 categories: [Theory]
 ---
