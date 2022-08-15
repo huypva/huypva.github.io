@@ -69,7 +69,7 @@ class MockTest {
 {% endhighlight %}
 
 Run test trên sẽ cho kết quả in toàn bộ bean của Spring được khởi tạo  
-{% endhighlight %}
+{% highlight shell %}
 $ ./mvnw clean test
 ...
 [INFO] Running io.github.huypva.junit5mock.MockTest
