@@ -103,6 +103,9 @@ the second time            |  AND 30;               |                           
 - Repeatable Reads: có read và write locks nhưng không cần đến range locks, nên phantom reads có thể xảy ra
 - Read committed: chỉ bao gồm write locks, nên read committed chỉ đảm bảo dirty reads là không xảy ra
 - Read Uncommitted: mức thấp nhất, cả 3 dirty reads, non-repeatable reads, phantom reads đều có thể xảy ra
+- Ngoài ra, còn một level nữa là **Snapshot**: tương đương với Serializable, nhưng khác về cách thức hoạt động. 
+    - Khi transaction đang select các bản ghi, nó không khóa các bản ghi này lại mà tạo một bản sao (snapshot) và select trên đó,
+     mục đích để giảm blocking giữa các transction, nhưng sẽ tăng bộ nhớ để lưu trữ snapshot
 
 ## Reference
 
