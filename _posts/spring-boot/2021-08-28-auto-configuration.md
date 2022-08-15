@@ -34,7 +34,8 @@ public class MyConf {
 @Configuration
 @ConfigurationProperties(prefix = "my-config")
 public class MyConf {
-...
+  //...
+}
 {% endhighlight %}
 
 - Sử dụng bean *MyConf* thông qua annotation ***Autowired*** 
