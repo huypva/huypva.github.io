@@ -37,7 +37,7 @@ public class MyConf {
 ...
 {% endhighlight %}
 
-- Sử dụng bean *MyConf* thông qua annotation *Autowired*  
+- Sử dụng bean *MyConf* thông qua annotation ***Autowired*** 
 {% highlight java %}
   @Autowired
   MyConf myConf;
