@@ -1,9 +1,10 @@
 ---
 layout: post
-title: Database isolation level
+title: Database Isolation Level
 date: 2022-08-15 10:00:20 +0700
 description: Giải thích database isolation level
 img: theory/isolation_level.png
+img-hidden: yes
 tags: [Theory]
 categories: [Theory]
 ---
