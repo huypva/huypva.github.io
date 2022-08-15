@@ -18,15 +18,15 @@ Database isolation là khả năng cho phép một transaction được thực t
 
 Tùy theo mức độ mà database isolation được chia làm 4 cấp độ (levels) - mức độ giảm dần như bên dưới  
 {% highlight text %}
-+-------------------+------+--------+--------------+---------+     +-----------+-------+
-|   Isolation level | Dirty| Lost   |Non-repeatable| Phantom |     |  Read     | Write |
-|                   | read | Update |Read          | Read    |     |           |       |
-+-------------------+------+--------+--------------+---------+     +-----------+-------+
-| Serializable      |   -  |   -    |       -      |    -    | --> | S Lock    |X Lock |
-| Repeatable Read   |   -  |   -    |       -      |    +    | --> |MVCC(first)|X Lock |
-| Read Committed    |   -  |   +    |       +      |    +    | --> |MVCC (last)|X Lock |
-| Read Uncommitted  |   +  |   +    |       +      |    +    | --> |  No Lock  |X Lock |
-+-------------------+------+--------+--------------+---------+     +-----------+-------+
++----------------+-----+------+--------------+-------+       +-----------+-------+
+|Isolation level |Dirty|Lost  |Non-repeatable|Phantom|       |  Read     | Write |
+|                |read |update|read          |read   |       |           |       |
++----------------+-----+------+--------------+-------+       +-----------+-------+
+|Serializable    |  -  |  -   |       -      |   -   |  -->  | S Lock    |X Lock |
+|Repeatable Read |  -  |  -   |       -      |   +   |  -->  |MVCC(first)|X Lock |
+|Read Committed  |  -  |  +   |       +      |   +   |  -->  |MVCC (last)|X Lock |
+|Read Uncommitted|  +  |  +   |       +      |   +   |  -->  |  No Lock  |X Lock |
++----------------+-----+------+--------------+-------+       +-----------+-------+
 {% endhighlight %}
 
  **'+'**: possible
