@@ -18,14 +18,14 @@ Database isolation là khả năng cho phép một transaction được thực t
 
 Tùy theo mức độ mà database isolation được chia làm 4 cấp độ (levels) - mức độ tăng dần như bên dưới  
 {% highlight sql %}
-+----------------------+---------------------------------------------------------------+     +--------------+----------+
-|   Isolation level    | Dirty read | Lost Update | Non-repeatable Read | Phantom Read |     |     Read     |   Write  |
-+----------------------+------------+-------------+---------------------+--------------+     +--------------+----------+
++----------------------+---------------------------------------------------------------+ --> +--------------+----------+
+|   Isolation level    | Dirty read | Lost Update | Non-repeatable Read | Phantom Read | --> |     Read     |   Write  |
++----------------------+------------+-------------+---------------------+--------------+ --> +--------------+----------+
 | **Read Uncommitted** |  Possible  |   Possible  |      Possible       |   Possible   | --> |    No Lock    |  X Lock  | 
 | **Read Committed**   | Impossible |   Possible  |      Possible       |   Possible   | --> | MVCC (first) |  X Lock  | 
 | **Repeatable Read**  | Impossible | Impossible  |     Impossible      |   Possible   | --> |  MVCC (last) |  X Lock  | 
 | **Serializable**     | Impossible | Impossible  |     Impossible      |  Impossible  | --> |    S Lock   |  X Lock  | 
-+----------------------+------------+-------------+---------------------+--------------+     +--------------+----------+
++----------------------+------------+-------------+---------------------+--------------+ --> +--------------+----------+
 {% endhighlight %}
 
 Giải thích một số khái niệm 
