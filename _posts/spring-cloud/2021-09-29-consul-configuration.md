@@ -146,6 +146,6 @@ $ ./mvnw spring-boot:run
 Id: 1
 Value: my value from consul
 Application name: spring-boot-consul
-{% endighlight %}
+{% endhighlight %}
 
 *Lưu ý*: Sau khi sử dụng config trên Consul, nên xóa file config `application.yml` để tránh nhầm lẫn
