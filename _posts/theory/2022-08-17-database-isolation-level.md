@@ -43,7 +43,7 @@ Giải thích một số khái niệm
 > A dirty read occurs when a transaction is allowed to read data from a row that has been modified by another running transaction and not yet committed
 
 Là hiện tượng mà một giao dịch đọc data mà sau đó data này đã bị chỉnh sửa bởi một giao dịch khác  
-{% highlight sql %}
+```sql
                                 | Transaction 1             | Transaction 2              |
                                 |---------------------------|----------------------------|
 Transaction 1 changes a row,    | UPDATE users SET age = 21 |                            |
@@ -61,10 +61,13 @@ the database                    |                           |                   
 Data got from Transaction 2     |                           |/* lock-based DIRTY READ */ |
 is dirty                        |                           |                            |
                                 |---------------------------|----------------------------|                                 
-{% endhighlight %}
+```
 
-- **Non-repeatable read**: trong quá trính thực hiện transaction, 1 row được đọc 2 lần và ra 2 kết quả khác nhau - During the course of a transaction, a row is retrieved twice and the values within the row differ between reads 
-{% highlight sql %}
+- **Non-repeatable read**
+> During the course of a transaction, a row is retrieved twice and the values within the row differ between reads  
+
+Trong quá trính thực hiện transaction, 1 row được đọc 2 lần và ra 2 kết quả khác nhau
+```sql
                            | Transaction 1          | Transaction 2                     |
                            |------------------------|-----------------------------------|
 Transaction 1 reads data   | SELECT * FROM users    |                                   |
@@ -83,10 +86,10 @@ value in that row          | COMMIT;                |                           
                            | /* lock-based */       |                                   |
                            | /* REPEATABLE READ */  |                                   |
                            |------------------------|-----------------------------------|
-{% endhighlight %}
+```
 
 - **Phantom read**: new rows are added or removed by another transaction to the records being read
-{% highlight sql %}
+```sql
                            | Transaction 1          | Transaction 2                    |
                            |------------------------|----------------------------------|
 Transaction 1 executed     | SELECT * FROM users    |                                  |
@@ -101,7 +104,7 @@ However, a different set   | SELECT * FROM users    |                           
 of rows may be returned    |  WHERE age BETWEEN 10  |                                  |   
 the second time            |  AND 30;               |                                  |
                            |------------------------|----------------------------------|
-{% endhighlight %}
+```
      
 ## Isolation level
 - Serializable: mức cao nhất của isolation levels, yêu cầu cả read và write locks. Khi SELECT với điều kiện WHERE là ranged thì cũng yêu cầu range-locks để tránh phantom read
