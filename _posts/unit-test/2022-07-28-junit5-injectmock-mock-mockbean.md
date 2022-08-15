@@ -205,7 +205,7 @@ class MockBeanTest {
 {% endhighlight %}
 
 Kết quả giống như @Mock
-{% endhighlight %}
+{% highlight text %}
 Start test!
 End test.
 {% endhighlight %}
