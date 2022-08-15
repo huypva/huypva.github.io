@@ -17,13 +17,13 @@ Sử dụng Functional Interface thông qua Lambda Expressions
 
 - Dạng 1
 
-{% endhighlight %}
+{% highlight %}
 (args) -> {block code}
 {% endhighlight %}
 
 - Dạng 2: dành cho **block code** chỉ có 1 dòng lệnh
 
-{% endhighlight %}
+{% highlight %}
 (args) -> code
 {% endhighlight %}
 
