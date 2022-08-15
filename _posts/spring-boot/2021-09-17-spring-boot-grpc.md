@@ -19,7 +19,7 @@ source: https://github.com/huypva/spring-boot-grpc-example
 
 Cấu trúc thư mục như sau:
 
-{% endhighlight %}
+{% highlight yml %}
 .
 ├── src
 │   ├── main
@@ -168,9 +168,7 @@ public class GreetingGrpcClient implements GreetingClient {
   @Override
   public String greet(String name) {
     GreetingRequest greetingRequest = GreetingRequest.newBuilder().setName(name).build();
-
     GreetingResponse response = greetingBlockingStub.greet(greetingRequest);
-
     return response.getMessage();
   }
 }
