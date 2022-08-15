@@ -6,7 +6,7 @@ layout: main
     {% if page.img %}
     <div class="page-cover-image">
       <figure>
-        {% if page.img-hidden %}
+        {% if page.hide-img == "yes" or page.hide-img == "Y" %}
         {% else %}
           <img class="page-image" src={{ "/assets/img/" | prepend: site.baseurl | append : page.img}} alt="{{page.title}}">
           {% if page.fig-caption %}
