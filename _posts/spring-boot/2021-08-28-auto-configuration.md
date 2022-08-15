@@ -29,14 +29,14 @@ public class MyConf {
 {% endhighlight %}
 
 - Sử dụng annotation ***@Configuration***, ***@ConfigurationProperties*** và các hàm setter để *Spring Boot* biết và tự động tạo bean tương ứng 
-{% highlight java %}
+```java
 @Setter
 @Configuration
 @ConfigurationProperties(prefix = "my-config")
 public class MyConf {
   //...
 }
-{% endhighlight %}
+```
 
 - Sử dụng bean *MyConf* thông qua annotation ***Autowired*** 
 {% highlight java %}
