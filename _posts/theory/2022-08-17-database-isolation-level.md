@@ -56,7 +56,28 @@ is dirty                        |                           |                   
 {% endhighlight %}
 
 - **Non-repeatable read**: trong quá trính thực hiện transaction, 1 row được đọc 2 lần và ra 2 kết quả khác nhau - During the course of a transaction, a row is retrieved twice and the values within the row differ between reads 
+{% highlight sql %}
+                           | Transaction 1          | Transaction 2                     |
+                           |------------------------|-----------------------------------|
+Transaction 1 reads data   | SELECT * FROM users    |                                   |
+from a row                 |  WHERE id = 1;         |                                   |
+                           |------------------------|-----------------------------------|
+Transaction 2 commits      |                        | UPDATE users SET age = 21         |
+successfully a changed dat |                        | WHERE id = 1;                     |
+                           |                        | COMMIT;                           |
+                           |                        | /* in multiversion concurrency */ |
+                           |                        | /* control, or lock-based READ */ |
+                           |                        | /* COMMITTED */                   |
+                           |------------------------|-----------------------------------|
+Transaction 1 reads data   | SELECT * FROM users    |                                   |
+again and got a different  | WHERE id = 1;          |                                   |
+value in that row          | COMMIT;                |                                   |
+                           | /* lock-based */       |                                   |
+                           | /* REPEATABLE READ */  |                                   |
+                           |------------------------|-----------------------------------|
+{% endhighlight %}
 
+- **Phantom read**: new rows are added or removed by another transaction to the records being read
 {% highlight sql %}
                            | Transaction 1          | Transaction 2                    |
                            |------------------------|----------------------------------|
@@ -72,28 +93,6 @@ However, a different set   | SELECT * FROM users    |                           
 of rows may be returned    |  WHERE age BETWEEN 10  |                                  |   
 the second time            |  AND 30;               |                                  |
                            |------------------------|----------------------------------|
-{% endhighlight %}
-
-- **Phantom read**: new rows are added or removed by another transaction to the records being read
-{% highlight sql %}
-                              | Transaction 1          | Transaction 2                  |
-                              |------------------------|--------------------------------|
-Transaction 1 reads data      | SELECT * FROM users |                                |
-from a row                    |  WHERE id = 1;         |                                |
-                              |------------------------|--------------------------------|
-Transaction 2 commits         |                        | UPDATE users SET age = 21      |
-successfully a changed dat    |                        | WHERE id = 1;                  |
-                              |                        | COMMIT;                        |
-                              |                        | /* in multiversion concurrency |
-                              |                        | control, or lock-based READ    |
-                              |                        | COMMITTED */                   |
-                              |------------------------|--------------------------------|
-Transaction 1 reads data      | SELECT * FROM users    |                                |
-again and got a different     | WHERE id = 1;          |                                |
-value in that row             | COMMIT;                |                                |
-                              | /* lock-based          |                                |
-                              |    REPEATABLE READ */  |                                |
-                              |------------------------|--------------------------------|
 {% endhighlight %}
      
 - Read Uncommitted: 
