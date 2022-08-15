@@ -2,7 +2,7 @@
 layout: post
 title: SQL - Filtering The Output
 date: 2020-07-12 09:00:20 +0700
-description: Soft description
+description: Sử dụng các phép toán cơ bản để filter dữ liệu
 img: sql/filtering.png
 tags: [SQL]
 categories: [SQL]

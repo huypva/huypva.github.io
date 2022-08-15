@@ -2,7 +2,7 @@
 layout: post
 title: SQL - Aggregate Functions
 date: 2020-07-12 09:00:20 +0700
-description: Soft description
+description: Mô tả các thao tác tổng hợp trên tập giá trị
 img: sql/aggregate_functions.png
 tags: [SQL]
 categories: [SQL]

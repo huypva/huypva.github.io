@@ -2,7 +2,7 @@
 layout: post
 title: SQL - CRUD Operations
 date: 2020-07-11 10:00:20 +0700
-description: Soft description
+description: Sử dụng các lệnh CRUD trong sql
 img: sql/crud.png
 tags: [SQL]
 categories: [SQL]

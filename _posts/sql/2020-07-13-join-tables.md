@@ -2,7 +2,7 @@
 layout: post
 title: SQL - Join Tables
 date: 2020-07-13 10:00:20 +0700
-description: Soft description
+description: Join 2 table trong SQL
 img: sql/join.png
 tags: [SQL]
 categories: [SQL]
