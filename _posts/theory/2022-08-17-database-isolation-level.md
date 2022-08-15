@@ -17,7 +17,7 @@ categories: [Theory]
 Database isolation là khả năng cho phép một transaction được thực thi độc lập với các giao dịch đồng thời khác đang chạy
 
 Tùy theo mức độ mà database isolation được chia làm 4 cấp độ (levels) - mức độ tăng dần như bên dưới  
-```
+{% highlight sql %}
 +----------------------+---------------------------------------------------------------+     +--------------+----------+
 |   Isolation level    | Dirty read | Lost Update | Non-repeatable Read | Phantom Read |     |     Read     |   Write  |
 +----------------------+------------+-------------+---------------------+--------------+     +--------------+----------+
@@ -26,7 +26,8 @@ Tùy theo mức độ mà database isolation được chia làm 4 cấp độ (l
 | **Repeatable Read**  | Impossible | Impossible  |     Impossible      |   Possible   | --> |  MVCC (last) |  X Lock  | 
 | **Serializable**     | Impossible | Impossible  |     Impossible      |  Impossible  | --> |    S Lock   |  X Lock  | 
 +----------------------+------------+-------------+---------------------+--------------+     +--------------+----------+
-```
+{% endhighlight %}
+
 Giải thích một số khái niệm 
 - **S Lock** (Shared Lock): Nếu transaction A đã lock data, thì transaction B chỉ có thể read data thôi, không được chỉnh sửa
 - **X Lock** (Exclusive Lock): Nếu X Lock vào data nào đó, thì sẽ không cho phép 1 transaction khác đọc hay chỉnh sửa nó
