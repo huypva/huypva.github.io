@@ -17,7 +17,7 @@ categories: [Theory]
 Database isolation là khả năng cho phép một transaction được thực thi độc lập với các giao dịch đồng thời khác đang chạy
 
 Tùy theo mức độ mà database isolation được chia làm 4 cấp độ (levels) - mức độ giảm dần như bên dưới  
-{% highlight text %}
+```text
 +----------------+-----+------+--------------+-------+       +-----------+-------+
 |Isolation level |Dirty|Lost  |Non-repeatable|Phantom|       |  Read     | Write |
 |                |read |update|read          |read   |       |           |       |
@@ -27,10 +27,8 @@ Tùy theo mức độ mà database isolation được chia làm 4 cấp độ (l
 |Read Committed  |  -  |  +   |       +      |   +   |  -->  |MVCC (last)|X Lock |
 |Read Uncommitted|  +  |  +   |       +      |   +   |  -->  |  No Lock  |X Lock |
 +----------------+-----+------+--------------+-------+       +-----------+-------+
-{% endhighlight %}
-
- **'+'**: possible
- **'-'**: Impossible
+```
+**+**: possible, **-**: impossible
 
 Giải thích một số khái niệm 
 - **S Lock** (Shared Lock): Nếu transaction A đã lock data, thì transaction B chỉ có thể read data thôi, không được chỉnh sửa
@@ -39,7 +37,12 @@ Giải thích một số khái niệm
 - **MVCC last**: read lasted committed data
 
 ## Read phenomena
-- **Dirty read**: Là hiện tượng mà một giao dịch đọc data mà sau đó data này đã bị chỉnh sửa bởi một giao dịch khác  
+> Three different read phenomena (hiện tượng) when Transaction 1 reads data that Transaction 2 might have changed
+
+- **Dirty read**
+> A dirty read occurs when a transaction is allowed to read data from a row that has been modified by another running transaction and not yet committed
+
+Là hiện tượng mà một giao dịch đọc data mà sau đó data này đã bị chỉnh sửa bởi một giao dịch khác  
 {% highlight sql %}
                                 | Transaction 1             | Transaction 2              |
                                 |---------------------------|----------------------------|
