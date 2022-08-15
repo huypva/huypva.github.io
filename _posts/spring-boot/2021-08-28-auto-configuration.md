@@ -11,16 +11,14 @@ source: https://github.com/huypva/auto-configuration-example
 
 > Tạo lớp configuration và tự động load từ file trong Spring Boot
 
-- Thêm configuration trong file application.yml
-
+- Thêm configuration trong file application.yml 
 {% highlight yaml %}
 my-config:
     id: 1
     value: my value
 {% endhighlight %} 
 
-- Tạo class tương ứng với configuration
-
+- Tạo class tương ứng với configuration 
 {% highlight java %}
 public class MyConf {
 
@@ -31,7 +29,6 @@ public class MyConf {
 {% endhighlight %} 
 
 - Sử dụng annotation ***@Configuration***, ***@ConfigurationProperties*** và các hàm setter để *Spring Boot* biết và tự động tạo bean tương ứng 
-
 {% highlight java %}
 @Setter
 @Configuration
@@ -40,8 +37,7 @@ public class MyConf {
 ...
 {% endhighlight %}
 
-- Sử dụng bean *MyConf* thông qua annotation *Autowired* 
-
+- Sử dụng bean *MyConf* thông qua annotation *Autowired*  
 {% highlight java %}
   @Autowired
   MyConf myConf;
@@ -50,8 +46,7 @@ public class MyConf {
   System.out.println("Value: " + myConf.getValue());
 {% endhighlight %}
 
-Output:
-
+Output
 {% endhighlight %}
 Id: 1
 Value: my value
