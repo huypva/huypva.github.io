@@ -13,7 +13,7 @@ source: https://github.com/huypva/spring-boot-rate-limit-example
 
 - Thêm dependency trong pom.xml  
 
-```xml
+{% highlight xml %}
   <!--  resilience4j ratelimit  -->
   <properties>
     <spring-cloud.version>2020.0.4</spring-cloud.version>
@@ -40,25 +40,25 @@ source: https://github.com/huypva/spring-boot-rate-limit-example
       </dependency>
     </dependencies>
   </dependencyManagement>
-```
+{% endhighlight %}
 
 - Thêm config cho ratelimiter  
 
-```yaml
+{% highlight yaml %}
 resilience4j.ratelimiter:
   instances:
     serviceA_greet:
       limitForPeriod: 5
       limitRefreshPeriod: 1s
       timeoutDuration: 0
-```
+{% endhighlight %}
 
 >> Ý nghĩa: Số lượng ***limitForPeriod*** request trong một khoảng thời gian ***limitRefreshPeriod***.
 >> timeoutDuration: thời gian đợi sau khi đạt ngưỡng
 
 - Thêm annotation ***@RateLimiter*** trên method cần ratelimit  
 
-```java
+{% highlight java %}
 @RestController
 public class Controller {
 
@@ -80,7 +80,7 @@ public class Controller {
   }
 
 }
-```
+{% endhighlight %}
 
 ## Reference
 

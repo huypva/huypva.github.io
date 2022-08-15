@@ -15,30 +15,30 @@ source: https://github.com/huypva/spring-boot-kafka-example
 
 - Thêm dependency trong pom.xml
 
-```xml
+{% highlight xml %}
 <dependencies>
     <dependency>
         <groupId>org.springframework.kafka</groupId>
         <artifactId>spring-kafka</artifactId>
     </dependency>
 </dependencies>
-``` 
+{% endhighlight %} 
 
 - Thêm cấu hình kafa trong file application.yml
 
-```yml
+{% highlight yaml %}
 spring:
   kafka:
     bootstrap-servers: "localhost:9093"
     listener:
       missing-topics-fatal: false
-```
+{% endhighlight %}
 
 ### Write a producer
 
 - Sử dụng bean `KafkaTemplate` để gửi một message lên topic `UserMessage` của Kafka
 
-```java
+{% highlight java %}
     @Autowired
     KafkaTemplate<String, String> userKafka;
   
@@ -59,11 +59,11 @@ spring:
             }
           });
     }
-```
+{% endhighlight %}
 
 ### Write a consumer
 
-```java
+{% highlight java %}
   @Autowired
   UserUseCase userUseCase;
   
@@ -83,4 +83,4 @@ spring:
       log.error("Exception - Reason:", ex);
     }
   }    
-```
+{% endhighlight %}

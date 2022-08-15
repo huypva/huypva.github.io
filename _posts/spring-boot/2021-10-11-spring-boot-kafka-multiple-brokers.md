@@ -14,18 +14,18 @@ source: https://github.com/huypva/spring-boot-kafka-multiple-brokers-example
 ### Configuration
 
 - Thêm dependency trong pom.xml
-```xml
+{% highlight xml %}
 <dependencies>
     <dependency>
         <groupId>org.springframework.kafka</groupId>
         <artifactId>spring-kafka</artifactId>
     </dependency>
 </dependencies>
-``` 
+{% endhighlight %} 
 
 - Thêm cấu hình Kafka trong file application.yml, ở đây có 2 Kafka khác nhau
 
-```yml
+{% highlight yaml %}
 user-kafka:
   bootstrap-servers: "localhost:19093"
   listener:
@@ -34,31 +34,31 @@ bank-kafka:
   bootstrap-servers: "localhost:29093"
   listener:
     missing-topics-fatal: false
-```
+{% endhighlight %}
 
 - Tạo class load properties cho broker thứ nhất
 
-```java
+{% highlight java %}
 @Configuration
 @ConfigurationProperties(prefix = "user-kafka")
 public class UserKafkaProperties extends KafkaProperties {
 
 }
-```
+{% endhighlight %}
 
 và với broker thứ 2
 
-```java
+{% highlight java %}
 @Configuration
 @ConfigurationProperties(prefix = "bank-kafka")
 public class BankKafkaProperties extends KafkaProperties {
 
 }
-```
+{% endhighlight %}
 
 - Để sử dụng được nhiều brokers, chúng ta sẽ tự tạo các bean cần thiết cho Producer và Consumer. Trước hết, disable cơ chế auto configuration cho Kafka
 
-```java
+{% highlight java %}
 @SpringBootApplication(exclude = KafkaAutoConfiguration.class)
 public class KafkaMultipleBrokersApplication {
   
@@ -66,13 +66,13 @@ public class KafkaMultipleBrokersApplication {
 		SpringApplication.run(KafkaMultipleBrokersApplication.class, args);
 	}
 }
-```
+{% endhighlight %}
 
 ### Tạo Producer
 
 - Tạo class Configuration để tạo bean *KafkaTemplate* cho broker thứ nhất
 
-```java
+{% highlight java %}
 @Component
 public class UserKafkaConfiguration {
 
@@ -96,11 +96,11 @@ public class UserKafkaConfiguration {
 
     return factory;
   }
-```
+{% endhighlight %}
 
 - Tạo class *Producer* autowired bean *KafkaTemplate* để gửi message lên broker
 
-```java
+{% highlight java %}
 @Service
 public class UserKafkaProducerImpl implements UserKafkaProducer {
 
@@ -127,7 +127,7 @@ public class UserKafkaProducerImpl implements UserKafkaProducer {
   }
 
 }
-```
+{% endhighlight %}
 
 - Tương tự tạo các class `BankKafkaConfiguration`, `BankKafkaProducerImpl` cho broker thứ 2
 
@@ -135,7 +135,7 @@ public class UserKafkaProducerImpl implements UserKafkaProducer {
 
 - Tạo các bean *ConcurrentKafkaListenerContainerFactory*, *ConsumerFactory* cần thiết cho Consumer trong class `UserKafkaConfiguration` 
 
-```java
+{% highlight java %}
 @Component
 public class UserKafkaConfiguration {
 
@@ -155,11 +155,11 @@ public class UserKafkaConfiguration {
     return new DefaultKafkaConsumerFactory(this.properties.buildConsumerProperties());
   }
 }
-```
+{% endhighlight %}
 
 - Viết class Consumer
 
-```java
+{% highlight java %}
 @Service
 public class UserKafkaConsumer {
 
@@ -184,17 +184,17 @@ public class UserKafkaConsumer {
     }
   }
 }
-```
+{% endhighlight %}
 
 - Tương tự, thêm bean trong `BankKafkaConfiguration`, và tạo class `BankKafkaConsumer` cho broker thứ 2
 
 - Enable Kafka cho project
 
-```java
+{% highlight java %}
 @EnableKafka
 public class KafkaMultipleBrokersApplication {
   //...
 }
-```
+{% endhighlight %}
 
 

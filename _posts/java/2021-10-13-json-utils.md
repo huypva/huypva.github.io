@@ -23,17 +23,17 @@ source: https://github.com/huypva/json-utils-example
 
 - Thêm dependency `gson` trong pom.xml
 
-```xml
+{% highlight xml %}
     <dependency>
         <groupId>com.google.code.gson</groupId>
         <artifactId>gson</artifactId>
         <version>2.8.6</version>
     </dependency>
-```
+{% endhighlight %}
 
 - Tạo và sử dụng thông qua class `Gson`
 
-```java
+{% highlight java %}
 public class GsonUtils {
   private static final Gson GSON = new GsonBuilder().create();
 
@@ -51,11 +51,11 @@ public class GsonUtils {
     return GSON.toJson(obj);
   }
 }
-```
+{% endhighlight %}
 
 - Sử dụng annotation *SerializedName* lên object cần thao tác để thay đổi param name
 
-```java
+{% highlight java %}
 public class GsonAnnotationObject {
 
   @SerializedName("object_id")
@@ -65,26 +65,26 @@ public class GsonAnnotationObject {
   public String objectName;
 
 }
-```
+{% endhighlight %}
 
 Sử dụng 
 
-```java
+{% highlight java %}
 GsonAnnotationObject annotationObject = new GsonAnnotationObject(1, "A");
 System.out.println(GsonUtils.toJson(annotationObject));
-```
+{% endhighlight %}
 
 Output:
 
-```text
+{% highlight text %}
 {"object_id":1,"object_name":"A"}
-```
+{% endhighlight %}
 
 ## Jackson
 
 - Thêm dependency `jackson-databind` trong pom.xml
 
-```xml
+{% highlight xml %}
 <dependencies>
     <dependency>
         <groupId>com.fasterxml.jackson.core</groupId>
@@ -92,11 +92,11 @@ Output:
         <version>2.12.5</version>
     </dependency>
 </dependencies>
-```
+{% endhighlight %}
 
 - Tạo và sử dụng thông qua class `ObjectMapper`
 
-```java
+{% highlight java %}
 public class JacksonUtils {
 
   private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
@@ -126,11 +126,11 @@ public class JacksonUtils {
   }
 
 }
-```
+{% endhighlight %}
 
 - Sử dụng annotation *JsonAlias* lên object cần thao tác để thay đổi param name
 
-```java
+{% highlight java %}
 @AllArgsConstructor
 @NoArgsConstructor
 public class JacksonAnnotationObject {
@@ -142,17 +142,17 @@ public class JacksonAnnotationObject {
   public String objectName;
 
 }
-```
+{% endhighlight %}
 
 Sử dụng 
 
-```java
+{% highlight java %}
 GsonAnnotationObject annotationObject = new GsonAnnotationObject(1, "A");
 System.out.println(GsonUtils.toJson(annotationObject));
-```
+{% endhighlight %}
 
 Output:
 
-```text
+{% highlight text %}
 {"object_id":1,"object_name":"A"}
-```
+{% endhighlight %}

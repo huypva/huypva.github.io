@@ -14,7 +14,7 @@ source: https://github.com/huypva/unit-test-mockito-example
 ## Dependency
 - Thêm dependency trong pom.xml để thực hiện UnitTest
 
-```html
+{% highlight html %}
 <dependencies>
   <dependency>
     <groupId>org.springframework.boot</groupId>
@@ -22,7 +22,7 @@ source: https://github.com/huypva/unit-test-mockito-example
     <scope>test</scope>
   </dependency>
 </dependencies>
-```
+{% endhighlight %}
 
 Trong Spring Boot version 2.2.6 trở lên đã có sẵn thư viện cho junit 5
 <div align="center">
@@ -31,7 +31,7 @@ Trong Spring Boot version 2.2.6 trở lên đã có sẵn thư viện cho junit 
 
 ## Mock bean
 - Sử dụng annotation ***@Mockbean*** để mock bean  
-```java
+{% highlight java %}
 @ExtendWith(SpringExtension.class)
 class UserCaseTest {
 
@@ -48,29 +48,29 @@ class UserCaseTest {
     Assertions.assertEquals(2, userCase.returnMethod());
   }
 }
-```
+{% endhighlight %}
 
 ## Mock static class
 - Sử dụng ***MockedStatic*** như sau
   
-```java
+{% highlight java %}
   try (MockedStatic<[Class cần mock]> mockedStatic = Mockito.mockStatic([Class cần mock].class); ) {
     //mock function bằng cách sử dụng mockedStatic 
   }
-```
+{% endhighlight %}
 
 Ví dụ: Giả sử cần test class ***MockStatic*** sử dụng static class ***StaticClass***  
-```java
+{% highlight java %}
 public class MockStatic {
 
   public String doMockStatic() {
     return "Static: " + StaticClass.doStaticMethod(1);
   }
 }
-```
+{% endhighlight %}
 
 Viết unit test như sau  
-```java
+{% highlight java %}
 @ExtendWith(SpringExtension.class)
 class MockStaticTest {
 
@@ -84,38 +84,38 @@ class MockStaticTest {
     }
   }
 }
-```
+{% endhighlight %}
 
 ## Mock return function 
 
 - Giả lập function theo format
   
-```java
+{% highlight java %}
 Mockito.when(...).thenReturn(...);
-```
+{% endhighlight %}
 
 Ví dụ  
-```java
+{% highlight java %}
 @Test
 void returnMethod_Count_Return2() {
 Mockito.when(dataProvider.getCount()).thenReturn(2);
 
 Assertions.assertEquals(2, userCase.returnMethod());
 }
-```
+{% endhighlight %}
 
 ## Mock void function
 - Giả lập void function theo format
 
-```java
+{% highlight java %}
 Mockito.doNothing().when(...);
-```
+{% endhighlight %}
 
 Ví dụ  
-```java
+{% highlight java %}
 @Test
 void voidMethod_() {
 Mockito.doNothing().when(dataProvider).increase(1);
 //...
 }
-```
+{% endhighlight %}

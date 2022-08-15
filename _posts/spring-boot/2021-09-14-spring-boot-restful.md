@@ -16,27 +16,27 @@ source: https://github.com/huypva/spring-boot-rest-example
 
 - Thêm dependency trong pom.xml
 
-```xml
+{% highlight xml %}
 <dependencies>
     <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
 </dependencies>
-``` 
+{% endhighlight %} 
 
 - Thêm cấu hình port listen cho server trong file application.yml
 
-```yml
+{% highlight yaml %}
 server:
   port : 8082
-```
+{% endhighlight %}
 
 ### Write controller
 
 - Viết class controller bằng cách sử dụng *RestController*
 
-```java
+{% highlight java %}
 @RestController
 @RequestMapping("/api")
 public class Controller {
@@ -49,7 +49,7 @@ public class Controller {
     return greetUseCase.greet(0, "GetMapping");
   }
 }
-```
+{% endhighlight %}
 
 *RequestMapping* và *GetMapping* tạo nên path của api (Ví dụ: /api/get-mapping) 
 
@@ -57,30 +57,30 @@ public class Controller {
 
 - Tạo mapping lấy variable từ path của api
 
-```java
+{% highlight java %}
   @GetMapping("/path-variable/{user_id}")
   public Greeting pathVariable(@PathVariable(name = "user_id") int userId) {
     return greetUseCase.greet(userId, "PathVariable");
   }
-```
+{% endhighlight %}
 
 - Tạo api nhận request param
 
-```java
+{% highlight java %}
   @GetMapping("/request-param")
   public Greeting requestParam(@RequestParam(name = "user_id") int userId) {
     return greetUseCase.greet(userId, "RequestParam");
   }
-```
+{% endhighlight %}
 
 - Tạo post request
 
-```java
+{% highlight java %}
   @PostMapping("/request-body")
   public Greeting requestBody(@RequestBody User user) {
     return greetUseCase.greet(user.getUserId(), "RequestBody");
   }
-```
+{% endhighlight %}
 
 ## Client side
 
@@ -90,7 +90,7 @@ public class Controller {
 
 - Thêm dependency trong file pom.xml
 
-```xml
+{% highlight xml %}
 <dependencies>
     <dependency>
         <groupId>org.springframework.cloud</groupId>
@@ -98,11 +98,11 @@ public class Controller {
         <version>2.2.3.RELEASE</version>
     </dependency>
 </dependencies>
-```
+{% endhighlight %}
 
 - Cấu hình url, path trong file application.yml
 
-```yml
+{% highlight yaml %}
 greeting-service:
   url: http://localhost:8082
   path:
@@ -110,11 +110,11 @@ greeting-service:
     path-variable: /api/path-variable/{user_id}
     request-param: /api/request-param
     request-body: /api/request-body
-```
+{% endhighlight %}
 
 - Sử dụng *FeignClient* annotation để tạo RestClient
 
-```java
+{% highlight java %}
 @FeignClient(value = "greeting", url = "${greeting-service.url}")
 public interface GreetingRestClient {
 
@@ -131,11 +131,11 @@ public interface GreetingRestClient {
   public Greeting requestBody(@RequestBody User user);
 
 }
-```
+{% endhighlight %}
 
 - Autowired *GreetingRestClient* bean để giao tiếp server side
 
-```java
+{% highlight java %}
   @Autowired
   GreetingRestClient greetingRestClient;
 
@@ -154,4 +154,4 @@ public interface GreetingRestClient {
 
     return "Hello world!";
   }
-```
+{% endhighlight %}

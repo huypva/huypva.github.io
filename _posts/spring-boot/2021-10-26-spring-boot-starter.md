@@ -20,7 +20,7 @@ source: https://github.com/huypva/spring-boot-starter-example
 
 - Class `SampleProperties`
 
-```java
+{% highlight java %}
 @Getter
 @Setter
 @ConfigurationProperties("sample-code")
@@ -30,13 +30,13 @@ public class SampleProperties {
   public String value;
 
 }
-```
+{% endhighlight %}
 
 Giá trị được lấy từ config sau thuộc tính `sample-code`
 
 - Class `SampleService` 
 
-```java
+{% highlight java %}
 public class SampleServiceImpl implements SampleService {
 
   private SampleProperties sampleProperties;
@@ -50,14 +50,14 @@ public class SampleServiceImpl implements SampleService {
     System.out.println("Do sample: " + sampleProperties.value);
   }
 }
-```
+{% endhighlight %}
 
 - Class `SampleAutoConfiguration` thực hiện các việc
     - Chỉ chạy auto khi thuộc tính `sample-code.active=true`
     - Load config theo class `SampleProperties`
     - Tự động tạo bean của class `SampleService`
 
-```java
+{% highlight java %}
 @Configuration
 @ConditionalOnProperty(name = "active", prefix = "sample-code", havingValue = "true")
 @EnableConfigurationProperties(SampleProperties.class)
@@ -70,29 +70,29 @@ public class SampleAutoConfiguration {
   }
 
 }
-```
+{% endhighlight %}
 
 - Thêm file spring.factories bên dưới thư mục src/main/resouces/META-INF
 
-```text
+{% highlight text %}
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
 io.codebyexample.springbootstarter.autoconfiguration.SampleAutoConfiguration
 
-```
+{% endhighlight %}
 
 ## Write a sample
 
 - Thêm config trong file application.yml  
 
-```yaml
+{% highlight yaml %}
 sample-code:
   active: true
   value: Sample Value
-```
+{% endhighlight %}
 
 - Lấy bean `SampleService` để sử dụng
 
-```java
+{% highlight java %}
 @SpringBootApplication
 public class Application {
 
@@ -110,4 +110,4 @@ public class Application {
 	}
 
 }
-```
+{% endhighlight %}

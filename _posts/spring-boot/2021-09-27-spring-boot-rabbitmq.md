@@ -16,29 +16,29 @@ source: https://github.com/huypva/spring-boot-rabbitmq-example
 
 - Thêm dependency trong file pom.xml
 
-```xml
+{% highlight xml %}
 <dependencies>
     <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-amqp</artifactId>
     </dependency>
 </dependencies>    
-```
+{% endhighlight %}
 
 - Thêm configuration sử dụng rabbitmq trong file application.yml
 
-```yaml
+{% highlight yaml %}
 spring:
   rabbitmq:
     host: 127.0.0.1
     port: 5672
     username: guest
     password: guest
-```
+{% endhighlight %}
 
 - Tạo các bean *Exchange*, *Queue* và *Binding* để bind Queue với Exchange
 
-```java
+{% highlight java %}
 @Configuration
 public class RabbitConfiguration {
 
@@ -62,11 +62,11 @@ public class RabbitConfiguration {
   }
 
 }
-```
+{% endhighlight %}
 
 - Tạo producer bằng cách sử dụng *RabbitTemplate* để send message đến RabbitMQ
 
-```java
+{% highlight java %}
 @Component
 public class GreetingRabbitProviderImpl implements GreetingRabbitProvider {
 
@@ -84,11 +84,11 @@ public class GreetingRabbitProviderImpl implements GreetingRabbitProvider {
         GsonUtils.toJson(greeting));
   }
 }
-```
+{% endhighlight %}
 
 - Sử dụng annotation *RabbitListener* để tạo consumer/listener
 
-```java
+{% highlight java %}
 @Slf4j
 @Component
 public class GreetingRabbitListener {
@@ -102,4 +102,4 @@ public class GreetingRabbitListener {
   }
 
 }
-```
+{% endhighlight %}

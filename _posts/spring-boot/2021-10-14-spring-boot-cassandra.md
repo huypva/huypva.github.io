@@ -13,29 +13,29 @@ source: https://github.com/huypva/spring-boot-cassandra-example
 
 - Thêm dependency trong pom.xml
 
-```xml
+{% highlight xml %}
 <dependencies>
     <dependency>
         <groupId>org.springframework.kafka</groupId>
         <artifactId>spring-boot-starter-data-cassandra</artifactId>
     </dependency>
 </dependencies>
-```
+{% endhighlight %}
 
 - Thêm cấu hình Cassandra trong file application.yml
 
-```yml
+{% highlight yaml %}
 spring:
   data:
     cassandra:
       contact-points: 127.0.0.1
       port: 9042
       keyspace-name: spring_boot_cassandra_example
-```
+{% endhighlight %}
 
 - Tạo class entity mapping table trong cassandra
 
-```java
+{% highlight java %}
 @Data
 @Table("User")
 public class UserEntity {
@@ -47,20 +47,20 @@ public class UserEntity {
   private String userName;
 
 }
-```
+{% endhighlight %}
 
 - Tạo Repository thao tác với table
 
-```java
+{% highlight java %}
 @Repository
 public interface UserRepository extends CassandraRepository<UserEntity, Long> {
 
 }
-```
+{% endhighlight %}
 
 - Sử dụng Repository để thực hiện query đến database
 
-```java
+{% highlight java %}
   @Autowired
   UserRepository userRepository;
     
@@ -69,4 +69,4 @@ public interface UserRepository extends CassandraRepository<UserEntity, Long> {
     UserEntity userEntity = userRepository.findById(userId).get();
     return new Greeting(userEntity.getUserId(), String.format("Hello %s!", userEntity.getUserName()));
   }
-```
+{% endhighlight %}

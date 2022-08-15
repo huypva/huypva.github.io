@@ -17,7 +17,7 @@ Thư viện sử dụng:
 - [opentracing-contrib/java-grpc](https://github.com/opentracing-contrib/java-grpc){:target="_blank"} - OpenTracing instrumentation for gRPC
 
 Định nghĩa dependency trong pom.xml
-```xml
+{% highlight xml %}
     <properties>
         <com.google.api.grpc.version>1.18.0</com.google.api.grpc.version>
         <com.google.protobuf.version>3.7.1</com.google.protobuf.version>
@@ -55,11 +55,11 @@ Thư viện sử dụng:
             <version>3.1.2</version>
         </dependency>
     </dependencies>
-```
+{% endhighlight %}
 
 - Cấu hình OpenTracing trong application.yml
 
-```yaml
+{% highlight yaml %}
 opentracing.jaeger:
   service-name: grpc-server
   enabled: true
@@ -70,13 +70,13 @@ opentracing.jaeger:
   enable-b3-propagation: false
   probabilistic-sampler:
     sampling-rate: 1.0
-``` 
+{% endhighlight %} 
 
 ## Server
 
 - Tạo grpc Controler
 
-```java
+{% highlight java %}
 @GrpcService
 public class GrpcController extends SimpleGrpc.SimpleImplBase {
  
@@ -88,11 +88,11 @@ public class GrpcController extends SimpleGrpc.SimpleImplBase {
   }
  
 }
-``` 
+{% endhighlight %} 
 
 - Tạo và intercept `TracingServerInterceptor` vào GrpcControler thông qua annotation `GrpcGlobalServerInterceptor`
 
-```java
+{% highlight java %}
   @Autowired
   private Tracer tracer;
  
@@ -109,13 +109,13 @@ public class GrpcController extends SimpleGrpc.SimpleImplBase {
  
     return tracingInterceptor;
   }
-```
+{% endhighlight %}
 
 ## Client
 
 - Tạo grpc-client
 
-```java
+{% highlight java %}
   @GrpcClient("service-name")
   private SimpleBlockingStub simpleStub;
    
@@ -128,11 +128,11 @@ public class GrpcController extends SimpleGrpc.SimpleImplBase {
       return "FAILED with " + e.getStatus().getCode().name();
     }
   }
-```
+{% endhighlight %}
 
 - Tạo `TracingClientInterceptor` và intercept vào grpc-client thông qua annotation `GrpcGlobalClientInterceptor`
 
-```java
+{% highlight java %}
   @Autowired
   private Tracer tracer;
  
@@ -147,4 +147,4 @@ public class GrpcController extends SimpleGrpc.SimpleImplBase {
  
     return tracingInterceptor;
   }
-```
+{% endhighlight %}

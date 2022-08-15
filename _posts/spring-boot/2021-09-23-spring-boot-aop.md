@@ -16,29 +16,29 @@ source: https://github.com/huypva/spring-boot-aop-example
 
 - Thêm dependency trong file pom.xml
 
-```xml
+{% highlight xml %}
 <dependencies>
     <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-aop</artifactId>
     </dependency>
 </dependencies>    
-```
+{% endhighlight %}
 
 - Tạo annotation
 
-```java
+{% highlight java %}
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
 public @interface TimeLogger {
 
   String value() default "";
 }
-```
+{% endhighlight %}
 
 - Tạo class xử lý annotation
 
-```java
+{% highlight java %}
 @Aspect
 @Component
 public class TimeLoggerAspectJ {
@@ -62,11 +62,11 @@ public class TimeLoggerAspectJ {
 
   }
 }
-```
+{% endhighlight %}
 
 - Thêm annotaion `EnableAspectJAutoProxy` để kích hoạt Aop
 
-```java
+{% highlight java %}
 @EnableAspectJAutoProxy
 @SpringBootApplication
 public class AopApplication {
@@ -76,4 +76,4 @@ public class AopApplication {
 	}
 
 }
-```
+{% endhighlight %}

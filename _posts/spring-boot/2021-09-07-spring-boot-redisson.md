@@ -13,7 +13,7 @@ source: https://github.com/huypva/spring-boot-redisson-example
 
 - Sử dụng dependency
 
-```xml
+{% highlight xml %}
 <dependencies>
   <dependency>
     <groupId>org.redisson</groupId>
@@ -21,13 +21,13 @@ source: https://github.com/huypva/spring-boot-redisson-example
     <version>3.16.1</version>
   </dependency>
 </dependencies>
-``` 
+{% endhighlight %} 
 
 Lưu ý: chọn version [redisson-spring-boot-starter](https://github.com/redisson/redisson/tree/master/redisson-spring-boot-starter){:target="_blank"} tương ứng version Spring Boot
 
 - Tạo file redisson.yml chứa cấu hình kết nối redis server trong thư mục resouces   
 
-```yml
+{% highlight yaml %}
 singleServerConfig:
   idleConnectionTimeout: 10000
   connectTimeout: 10000
@@ -47,20 +47,20 @@ singleServerConfig:
 threads: 0
 nettyThreads: 0
 codec: !<org.redisson.codec.JsonJacksonCodec> {}
-``` 
+{% endhighlight %} 
 
 - Thêm cấu hình trong file application.yml
 
-```yml
+{% highlight yaml %}
 spring:
   redis:
     redisson:
       file: classpath:redisson.yml
-```
+{% endhighlight %}
 
 - Thao tác với redis thông qua bean `RedissonClient`
 
-```java
+{% highlight java %}
   @Autowired
   RedissonClient redissonClient;
     
@@ -73,4 +73,4 @@ spring:
     RBucket<String> bucket = redissonClient.getBucket(key);
     return bucket.get();
   }
-```
+{% endhighlight %}

@@ -12,7 +12,7 @@ source: https://github.com/huypva/junit5-mock-example
 > Giải thích các annotation @InjectMock, @Mock vs @MockBean
 
 Ví dụ project sau
-```java
+{% highlight java %}
 @Setter
 @Component
 public class ComponentB  {
@@ -44,7 +44,7 @@ public class Application {
 	}
 
 }
-```
+{% endhighlight %}
 
 ## @Mock
 
@@ -52,7 +52,7 @@ public class Application {
 Do đó, khi gọi bất kỳ method nào của class thì đều không thực hiện (nếu là void method) hoặc return defaul 
 
 Ví dụ
-```java
+{% highlight java %}
 @ExtendWith(MockitoExtension.class)
 class MockTest {
 
@@ -66,24 +66,24 @@ class MockTest {
     System.out.println("End test.");
   }
 }
-```
+{% endhighlight %}
 
 Run test trên sẽ cho kết quả in toàn bộ bean của Spring được khởi tạo  
-```
+{% endhighlight %}
 $ ./mvnw clean test
 ...
 [INFO] Running io.github.huypva.junit5mock.MockTest
 Start test!
 End test.
 ...
-```
+{% endhighlight %}
 
 ## @InjectMock
 
 - @InjectMock sẽ tạo object thật từ class được mock
 Khác với @Mock, khi gọi method của object được inject mock thì sẽ thực hiện method thực của nó
 
-```java
+{% highlight java %}
 @ExtendWith(MockitoExtension.class)
 class InjectMockTest {
 
@@ -97,19 +97,19 @@ class InjectMockTest {
     System.out.println("End test.");
   }
 }
-```
+{% endhighlight %}
 
 Kết quả test case
-```text
+{% highlight text %}
 Start test!
 Component B do nothing
 End test.
 ...
-``` 
+{% endhighlight %} 
 
 - Khi tạo object với @InjectMock, object này sẽ inject tất cả các object đã được khởi tạo bởi ***@Mock*** và ***@Spy***
 
-```java
+{% highlight java %}
 @ExtendWith(MockitoExtension.class)
 class InjectMockTest {
 
@@ -124,18 +124,18 @@ class InjectMockTest {
     serviceA.action("ServiceA");
   }
 }
-```
+{% endhighlight %}
 
 Kết quả test case  
-```text
+{% highlight text %}
 Service A do ServiceA
-```
+{% endhighlight %}
 
 ## @Spy
 
 - @Spy là khởi tạo một object thật của một class, mọi sự thay đổi sẽ thay thực hiện thật trên object này
 
-```java
+{% highlight java %}
 @ExtendWith(MockitoExtension.class)
 class SpyTest {
 
@@ -150,18 +150,18 @@ class SpyTest {
     System.out.println("End test.");
   }
 }
-```
+{% endhighlight %}
 
 Kết quả test case
-```text
+{% highlight text %}
 Start test!
 Component B do Spy
 End test.
-```
+{% endhighlight %}
 
 - Sử dụng ***@Spy*** khi muốn inject một object thật vào object test (bởi @InjectMocks)
 
-```java
+{% highlight java %}
 @ExtendWith(MockitoExtension.class)
 class InjectSpyTest {
 
@@ -176,19 +176,19 @@ class InjectSpyTest {
     serviceA.action("Test");
   }
 }
-```
+{% endhighlight %}
 
 Kết quả test case  
-```text
+{% highlight text %}
 Component B do nothing
 Service A do Test
-```
+{% endhighlight %}
 
 ## @MockBean
 
 - @MockBean là annotation của Spring framework, một thay thế của @Mock 
 
-```java
+{% highlight java %}
 @SpringBootTest
 class MockBeanTest {
 
@@ -202,11 +202,11 @@ class MockBeanTest {
     System.out.println("End test.");
   }
 }
-```
+{% endhighlight %}
 
 Kết quả giống như @Mock
-```
+{% endhighlight %}
 Start test!
 End test.
-```
+{% endhighlight %}
 

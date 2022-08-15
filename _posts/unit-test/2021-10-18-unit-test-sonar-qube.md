@@ -15,7 +15,7 @@ source: https://github.com/huypva/unit-test-sonar-qube-example
 
 - Tạo docker-compose file chạy SonarQube 
 
-```yaml
+{% highlight yaml %}
 version: "3.4"
 services:
   sonarqube:
@@ -62,7 +62,7 @@ volumes:
 
 networks:
   unit-test-sonar-qube-network:
-```
+{% endhighlight %}
 
 ## Tạo token
 
@@ -90,7 +90,7 @@ Lưu lại kết quả token
 
 - Thêm plugin jacoco trong file pom.xml của project
 
-```xml
+{% highlight xml %}
 <properties>
     <jacoco.version>0.8.6</jacoco.version>
 </properties>
@@ -134,21 +134,21 @@ Lưu lại kết quả token
     </execution>
   </executions>
 </plugin>
-```
+{% endhighlight %}
 
 - Thêm file lombok.config để bỏ qua lombok khi report SonarQube
 
-```text
+{% highlight text %}
 config.stopBubbling = true
 lombok.addLombokGeneratedAnnotation = true
-```
+{% endhighlight %}
 
 - Chạy unit test và report trên sonar với giá trị sonar.login bằng token đã lưu bên trên
 
-```shell
+{% highlight shell %}
 $ ../mvnw clean package
 $ ../mvnw sonar:sonar \
   -Dsonar.projectKey=io.codebyexample:unit-test-sonar-qube \
   -Dsonar.host.url=http://localhost:9000 \
   -Dsonar.login=b229f28876ad85e6cdb5a30ef7e1331f66a8a2c9
-```
+{% endhighlight %}

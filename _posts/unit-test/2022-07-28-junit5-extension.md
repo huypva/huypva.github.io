@@ -12,7 +12,7 @@ source: https://github.com/huypva/junit5-extension-example
 > Giải thích các annotation @SpringBootTest, @ExtendWith khi viết unit test trong Spring Boot application
 
 Ví dụ project sau
-```java
+{% highlight java %}
 @Service
 public class ServiceA {
 
@@ -42,14 +42,14 @@ public class Application {
 	}
 
 }
-```
+{% endhighlight %}
 
 ## @SpringBootTest
 
 - ***@SpringBootTest*** khởi tạo toàn bộ Spring Context bằng cách tìm kiếm class có gắn annotation @SpringBootApplication để thực hiện
 
 Ví dụ
-```java
+{% highlight java %}
 @SpringBootTest
 class SpringBootTestTest {
 
@@ -65,21 +65,21 @@ class SpringBootTestTest {
     }
   }
 }
-```
+{% endhighlight %}
 
 Run Test trên sẽ cho kết quả in toàn bộ bean của Spring được khởi tạo  
-```
+{% endhighlight %}
 ...
 Bean: server-org.springframework.boot.autoconfigure.web.ServerProperties
 Bean: serviceA
 Bean: servletWebServerFactoryCustomizer
 Bean: simpleControllerHandlerAdapter
 ...
-```
+{% endhighlight %}
 
 - Sau khi khởi tạo xong, có thể sử dụng ***@Autowired*** để lấy các bean trong Spring context ra test
 
-```java
+{% highlight java %}
 @SpringBootTest
 class SpringBootTestTest {
 
@@ -97,13 +97,13 @@ class SpringBootTestTest {
     Assertions.assertEquals("Hello World with id 1!", greeting);
   }
 }
-```
+{% endhighlight %}
 
 ## @ExtendWith(SpringExtension.class)
 
 - Khởi tạo môi trường test do Spring quản lý, nhưng chỉ có vài bean cần thiết được tạo ra
 
-```java
+{% highlight java %}
 @ExtendWith(SpringExtension.class)
 class SpringExtensionTest {
 
@@ -119,10 +119,10 @@ class SpringExtensionTest {
     }
   }
 }
-```
+{% endhighlight %}
 
 Kết quả in ra các bean sau
-```java
+{% highlight java %}
 Bean: org.springframework.boot.test.mock.mockito.MockitoPostProcessor
 Bean: org.springframework.boot.test.mock.mockito.MockitoPostProcessor$SpyPostProcessor
 Bean: org.springframework.context.annotation.internalAutowiredAnnotationProcessor
@@ -130,11 +130,11 @@ Bean: org.springframework.context.annotation.internalCommonAnnotationProcessor
 Bean: org.springframework.context.annotation.internalConfigurationAnnotationProcessor
 Bean: org.springframework.context.event.internalEventListenerFactory
 Bean: org.springframework.context.event.internalEventListenerProcessor
-``` 
+{% endhighlight %} 
 
 - Sử dụng ***@Import([Class cần test])*** để tạo bean class đó và sử dụng ***@Autowired*** để lấy bean ra test
 
-```java
+{% highlight java %}
 @Import(ServiceA.class)
 @ExtendWith(SpringExtension.class)
 class SpringExtensionTest {
@@ -153,14 +153,14 @@ class SpringExtensionTest {
     Assertions.assertEquals("Hello World with id 1!", greeting);
   }
 }
-```
+{% endhighlight %}
 
 ## @ExtendWith(MockitoExtension.class)
 - Tạo một môi trường test do Mockito quản lý. Môi trường này không phải của Spring sẽ không có bất kỳ bean nào được tạo ra, dù @Autowired ApplicationContext cũng báo lỗi ngay ***NullPointerException***  
 
 - Sử dụng annotation ***@InjectMocks*** và ***@Mock*** để tạo ra các object cần test cũng như giải lập object để test
 
-```java
+{% highlight java %}
 @ExtendWith(MockitoExtension.class)
 class ServiceAMockitoExtensionTest {
 
@@ -178,7 +178,7 @@ class ServiceAMockitoExtensionTest {
     Assertions.assertEquals("Hello World with id 1!", greeting);
   }
 }
-```
+{% endhighlight %}
 
 ## Conclusion
 

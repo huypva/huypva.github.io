@@ -21,7 +21,7 @@ source: https://github.com/huypva/spring-boot-prometheus-grafana-example
 
 - Thêm dependency trong file pom.xml
 
-```xml
+{% highlight xml %}
 <dependencies>
     <!--  actuator  -->
     <dependency>
@@ -35,11 +35,11 @@ source: https://github.com/huypva/spring-boot-prometheus-grafana-example
       <artifactId>micrometer-registry-prometheus</artifactId>
     </dependency>
 </dependencies>
-```
+{% endhighlight %}
 
 - Thêm configuration cho micrometer trong file application.yml
 
-```yml
+{% highlight yaml %}
 management:
   endpoints:
     web:
@@ -58,20 +58,20 @@ management:
         http:
           server:
             requests: 1ms,20ms,50ms,100ms,200ms,500ms,1s,2s,5s,10s,10s,50s
-```
+{% endhighlight %}
 
 - Thêm các class cần thiết và start một Restfull service
 
 - Kiểm tra các đường dẫn actuator quản lý
 
-```shell
+{% highlight shell %}
 $ curl -X GET http://localhost:8081/actuator
 {"_links":{"self":{"href":"http://localhost:8081/actuator","templated":false},"health":{"href":"http://localhost:8081/actuator/health","templated":false},"health-path":{"href":"http://localhost:8081/actuator/health/{*path}","templated":true},"prometheus":{"href":"http://localhost:8081/actuator/prometheus","templated":false}}}
-```
+{% endhighlight %}
 
 - Xem các metrics cho prometheus
 
-```shell
+{% highlight shell %}
 $ curl -X GET http://localhost:8081/actuator/prometheus
 ...
 http_server_requests_seconds_max{exception="None",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",} 0.2230911
@@ -81,13 +81,13 @@ http_server_requests_seconds_max{exception="None",method="GET",outcome="CLIENT_E
 # TYPE process_cpu_usage gauge
 process_cpu_usage 0.009735744089012517
 ...
-```
+{% endhighlight %}
 
 ## Cài đặt prometheus & grafana
 
 - File docker-compose.yml
 
-```yaml
+{% highlight yaml %}
 version: "3.4"
 
 services:
@@ -114,24 +114,24 @@ volumes:
     external: true
 networks:
   prometheus-grafana-network:
-```
+{% endhighlight %}
 
 - Với file config prometheus.yml
 
-```yaml
+{% highlight yaml %}
 scrape_configs:
   - job_name: 'spring-boot-prometheus-grafana-metrics'
     metrics_path: '/actuator/prometheus'
     scrape_interval: 5s
     static_configs:
       - targets: [ 'spring-boot-prometheus-grafana:8081' ]
-```
+{% endhighlight %}
 
 - Start docker-compose
 
-```shell
+{% highlight shell %}
 $ docker-compose up -d
-```
+{% endhighlight %}
 
 - Mở browser và truy cập tool qua link sau
     - Prometheus: http://localhost:9090/
@@ -159,39 +159,39 @@ $ docker-compose up -d
 - Success Rate
     + Metric 1
     
-```text
+{% highlight text %}
 sum(increase(http_server_requests_seconds_bucket{application="$application", instance="$instance", status="200"}[1m]))
 /
 sum(increase(http_server_requests_seconds_bucket{application="$application", instance="$instance"}[1m]))
-```
+{% endhighlight %}
 
 Metric 2
     
-```text
+{% highlight text %}
 sum(increase(http_server_requests_seconds_bucket{application="$application", instance="$instance", status!="200"}[1m]))
 /
 sum(increase(http_server_requests_seconds_bucket{application="$application", instance="$instance"}[1m]))
-```
+{% endhighlight %}
 
 
 - Metric B
 
-```text
+{% highlight text %}
 sum(increase(http_server_requests_seconds_bucket{uri="/greeting", status!="200"}[1m]))
 /
 sum(increase(http_server_requests_seconds_bucket{uri="/greeting"}[1m]))
-```
+{% endhighlight %}
 
 - Throughput
 
-```text
+{% highlight text %}
 sum(rate(http_server_requests_seconds_bucket{application="$application", instance="$instance"}[1m])) by (uri)
-```
+{% endhighlight %}
 
 - Latency P99
 
-```text
+{% highlight text %}
 histogram_quantile(0.99, sum(rate(http_server_requests_seconds_bucket{application="$application", instance="$instance"}[1m])) by (le, uri))
-```
+{% endhighlight %}
 
 ![extra metrics](/assets/img/spring_boot/prometheus_grafana/grafana_extra_metrics.png)

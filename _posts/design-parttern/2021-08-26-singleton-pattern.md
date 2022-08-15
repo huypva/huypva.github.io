@@ -11,7 +11,7 @@ source: https://github.com/huypva/singleton-pattern-example
 
 - *Singleton* là pattern tạo ra một instance duy nhất của một class
 
-```java
+{% highlight java %}
 public class Singleton {
 
   private static final Singleton instance = new Singleton();
@@ -25,11 +25,11 @@ public class Singleton {
     return instance;
   }
 }
-```
+{% endhighlight %}
 
 - *Lazy singleton* tạo instance khi được sử dụng
 
-```java
+{% highlight java %}
 public class LazySingleton {
 
   private static LazySingleton instance;
@@ -46,11 +46,11 @@ public class LazySingleton {
     return instance;
   }
 }
-```
+{% endhighlight %}
 
 - *Double checked singleton* đảm bảo tạo singleton trong môi trường mutilthread
 
-```java
+{% highlight java %}
 public class DoubleCheckedSingleton {
 
   private static DoubleCheckedSingleton instance;
@@ -71,11 +71,11 @@ public class DoubleCheckedSingleton {
     return instance;
   }
 }
-```
+{% endhighlight %}
 
 - *BillPugh singleton* tạo singleton bằng cách sử dụng static inner class
 
-```java
+{% highlight java %}
 public class BillPughSingleton {
 
   private BillPughSingleton(){}
@@ -90,4 +90,4 @@ public class BillPughSingleton {
     return SingletonHelper.INSTANCE;
   }
 }
-```
+{% endhighlight %}

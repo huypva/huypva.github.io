@@ -19,7 +19,7 @@ source: https://github.com/huypva/spring-boot-grpc-example
 
 Cấu trúc thư mục như sau:
 
-```
+{% endhighlight %}
 .
 ├── src
 │   ├── main
@@ -35,11 +35,11 @@ Cấu trúc thư mục như sau:
 │   ├── test
 │   ├── Dockerfile
 │   ...
-```
+{% endhighlight %}
 
 - Thêm build trong file pom.xml
 
-```xml
+{% highlight xml %}
 <dependencies>
     <properties>
         <kr.motd.maven.version>1.5.0.Final</kr.motd.maven.version>
@@ -85,13 +85,13 @@ Cấu trúc thư mục như sau:
             </plugin>
         </plugins>
     </build>
-```
+{% endhighlight %}
 
 ## Server side
 
 - Thêm dependency trong pom.xml
 
-```xml
+{% highlight xml %}
 <dependencies>
     <dependency>
         <groupId>net.devh</groupId>
@@ -99,19 +99,19 @@ Cấu trúc thư mục như sau:
         <version>2.12.0.RELEASE</version>
     </dependency>
 </dependencies>
-``` 
+{% endhighlight %} 
 
 - Thêm port gRPC trong file application.yml
 
-```yml
+{% highlight yaml %}
 grpc:
   server:
     port: 8082
-```
+{% endhighlight %}
 
 - Sử dụng annotation *GrpcService* để tạo controller
 
-```java
+{% highlight java %}
 @GrpcService
 public class Controller extends GreetingGrpc.GreetingImplBase {
 
@@ -131,23 +131,23 @@ public class Controller extends GreetingGrpc.GreetingImplBase {
   }
 
 }
-```
+{% endhighlight %}
 
 ## Client side
 
 - Thêm dependency trong file pom.xml
 
-```xml
+{% highlight xml %}
 		<dependency>
 			<groupId>net.devh</groupId>
 			<artifactId>grpc-client-spring-boot-starter</artifactId>
 			<version>2.12.0.RELEASE</version>
 		</dependency>
-```
+{% endhighlight %}
 
 - Cấu hình thông tin server trong application.yml
 
-```yml
+{% highlight yaml %}
 grpc:
   client:
     greeting:
@@ -155,11 +155,11 @@ grpc:
       enableKeepAlive: true
       keepAliveWithoutCalls: true
       negotiationType: plaintext
-```
+{% endhighlight %}
 
 - Sử dụng *GrpcClient* để tạo GrpcClient
 
-```java
+{% highlight java %}
 public class GreetingGrpcClient implements GreetingClient {
 
   @GrpcClient("greeting")
@@ -174,4 +174,4 @@ public class GreetingGrpcClient implements GreetingClient {
     return response.getMessage();
   }
 }
-```
+{% endhighlight %}

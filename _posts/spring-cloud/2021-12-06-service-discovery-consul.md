@@ -28,7 +28,7 @@ source: https://github.com/huypva/spring-boot-service-discovery-consul-example
 
 - Tạo file docker-compose.yml
 
-```yaml
+{% highlight yaml %}
 version: "3.4"
 services:
   consul:
@@ -43,12 +43,12 @@ services:
       - '8500:8500'
       - '8600:8600'
       - '8600:8600/udp'
-```
+{% endhighlight %}
 
 - Start Consul bằng command  
-```shell script
+{% highlight shell %}
 $ docker-compose up -d
-```
+{% endhighlight %}
 
 - Truy cập Consul admin trên browser tại địa chỉ `http://localhost:8500/`
 
@@ -62,7 +62,7 @@ $ docker-compose up -d
 
 - Thêm dependencies trong pom.xml
 
-```xml
+{% highlight xml %}
     <parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
@@ -102,11 +102,11 @@ $ docker-compose up -d
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
-```
+{% endhighlight %}
 
 - Thêm config Consul trong application.yml
 
-```yaml
+{% highlight yaml %}
 spring:
   cloud:
     consul:
@@ -120,11 +120,11 @@ spring:
         health-check-critical-timeout: "1m"
       config:
         enabled: false
-```
+{% endhighlight %}
 
 - Enable Feign and discovery client
 
-```java
+{% highlight java %}
 @EnableFeignClients
 @EnableDiscoveryClient
 @SpringBootApplication
@@ -135,21 +135,21 @@ public class ServiceAApplication {
 	}
 
 }
-```
+{% endhighlight %}
 
 - Tao Feign client
 
 Thêm config path 
 
-```yaml
+{% highlight yaml %}
 service-B:
   path:
     greet: /greetb/{id}
-```
+{% endhighlight %}
 
 Code client
 
-```java
+{% highlight java %}
 @FeignClient(value = "service-B")
 public interface ServiceBClient {
 
@@ -157,13 +157,13 @@ public interface ServiceBClient {
   MessageB greet(@PathVariable(name = "id") int id);
 
 }
-```
+{% endhighlight %}
 
 ### Tạo server service-B
 
 - Thêm dependencies trong pom.xml
 
-```xml
+{% highlight xml %}
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -203,11 +203,11 @@ public interface ServiceBClient {
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
-```
+{% endhighlight %}
 
 - Thêm config Consul trong application.yml
 
-```yaml
+{% highlight yaml %}
 spring:
   cloud:
     consul:
@@ -221,11 +221,11 @@ spring:
         health-check-critical-timeout: "1m"
       config:
         enabled: false
-```
+{% endhighlight %}
 
 - Enable Feign and discovery client
 
-```java
+{% highlight java %}
 @EnableFeignClients
 @EnableDiscoveryClient
 @SpringBootApplication
@@ -236,5 +236,5 @@ public class ServiceAApplication {
 	}
 
 }
-```
+{% endhighlight %}
 

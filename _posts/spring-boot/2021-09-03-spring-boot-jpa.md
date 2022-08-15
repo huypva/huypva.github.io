@@ -16,7 +16,7 @@ Hướng dẫn sử dụng jpa giao tiếp database trong Spring Boot
 
 - Định nghĩa dependency trong pom.xml
 
-```xml
+{% highlight xml %}
 <dependencies>
     <!--spring mvc, rest-->
     <dependency>
@@ -34,11 +34,11 @@ Hướng dẫn sử dụng jpa giao tiếp database trong Spring Boot
         <artifactId>mysql-connector-java</artifactId>
     </dependency>
 </dependencies>
-```
+{% endhighlight %}
 
 - Cấu hình datasource & jpa trong application.yml
 
-```yml
+{% highlight yaml %}
 spring:
     datasource:
         url: "jdbc:mysql://localhost:3306/spring_boot_jpa_example"
@@ -50,11 +50,11 @@ spring:
         show-sql: true
         hibernate:
           ddl-auto: none
-``` 
+{% endhighlight %} 
 
 - Tạo class entity tương ứng với table trong database
 
-```java
+{% highlight java %}
 @Entity
 @Table(name = "user")
 public class UserDto {
@@ -67,20 +67,20 @@ public class UserDto {
   @Column(name = "user_name")
   private String userName;
 }
-``` 
+{% endhighlight %} 
 
 - Tạo Repository thao tác với table
 
-```java
+{% highlight java %}
 public interface UserRepository extends JpaRepository<UserDto, Integer> {
 
   Optional<UserDto> findUserByUserName(String username);
 }
-```
+{% endhighlight %}
 
 - Query database thông qua repository
 
-```java
+{% highlight java %}
   @Autowired
   private final UserRepository userRepository;
   
@@ -89,4 +89,4 @@ public interface UserRepository extends JpaRepository<UserDto, Integer> {
       return userRepository.findUserByUserName(username)
           .orElseThrow(() -> new UserNotFoundException(String.format("Not found user by name %s", username)));
   }
-```
+{% endhighlight %}
