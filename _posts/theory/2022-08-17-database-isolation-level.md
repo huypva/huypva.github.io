@@ -58,6 +58,24 @@ is dirty                        |                           |                   
 - **Non-repeatable read**: trong quá trính thực hiện transaction, 1 row được đọc 2 lần và ra 2 kết quả khác nhau - During the course of a transaction, a row is retrieved twice and the values within the row differ between reads 
 
 {% highlight sql %}
+                           | Transaction 1          | Transaction 2                    |
+                           |------------------------|----------------------------------|
+Transaction 1 executed     | SELECT * FROM users    |                                  |
+the same query twice       |  WHERE age BETWEEN 10  |                                  |   
+                           |  AND 30;               |                                  |
+                           |------------------------|----------------------------------|
+                           |                        | INSERT INTO users(id, name, age) |
+                           |                        | VALUES (3, 'Bob', 27);           |
+                           |                        | COMMIT;                          |
+                           |------------------------|----------------------------------|
+However, a different set   | SELECT * FROM users    |                                  |
+of rows may be returned    |  WHERE age BETWEEN 10  |                                  |   
+the second time            |  AND 30;               |                                  |
+                           |------------------------|----------------------------------|
+{% endhighlight %}
+
+- **Phantom read**: new rows are added or removed by another transaction to the records being read
+{% highlight sql %}
                               | Transaction 1          | Transaction 2                  |
                               |------------------------|--------------------------------|
 Transaction 1 reads data      | SELECT * FROM users |                                |
@@ -77,8 +95,6 @@ value in that row             | COMMIT;                |                        
                               |    REPEATABLE READ */  |                                |
                               |------------------------|--------------------------------|
 {% endhighlight %}
-
-- **Phantom read**: là rủi ro xảy ra với lệnh read có điều kiện (chẳng hạn mệnh đề where trong sql). Transaction A đọc được một số X dữ liệu thỏa mãn điều kiện 1, transaction B tiến hành phép write sinh ra một lượng Y dữ liệu thỏa mãn điều kiện , A tính toán lại với điều kiện 1 thấy bổ sung thêm một lượng Y dữ và tổng dữ liệu giữa 2 lần trở lên không đồng nhất.
      
 - Read Uncommitted: 
 
