@@ -21,17 +21,16 @@ Tùy theo mức độ mà database isolation được chia làm 4 cấp độ (l
 +-------------------+------+--------+--------------+---------+     +-----------+-------+
 |   Isolation level | Dirty| Lost   |Non-repeatable| Phantom |     |  Read     | Write |
 |                   | read | Update |Read          | Read    |     |           |       |
-+-------------------+------+--------+--------------+---------+     +-----------+-------+ 
++-------------------+------+--------+--------------+---------+     +-----------+-------+
 | Serializable      |   -  |   -    |       -      |    -    | --> | S Lock    |X Lock |
-| Repeatable Read   |   -  |   -    |       -      |    +    | --> |MVCC(first)|X Lock | 
+| Repeatable Read   |   -  |   -    |       -      |    +    | --> |MVCC(first)|X Lock |
 | Read Committed    |   -  |   +    |       +      |    +    | --> |MVCC (last)|X Lock |
-| Read Uncommittet  |   +  |   +    |       +      |    +    | --> |  No Lock  |X Lock |  
+| Read Uncommitted  |   +  |   +    |       +      |    +    | --> |  No Lock  |X Lock |
 +-------------------+------+--------+--------------+---------+     +-----------+-------+
 {% endhighlight %}
 
-Với
-    '+': possible
-    '-': Impossible
+**'+'**: possible
+**'-'**: Impossible
 
 Giải thích một số khái niệm 
 - **S Lock** (Shared Lock): Nếu transaction A đã lock data, thì transaction B chỉ có thể read data thôi, không được chỉnh sửa
