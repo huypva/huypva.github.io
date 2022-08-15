@@ -90,7 +90,7 @@ public class GrpcController extends SimpleGrpc.SimpleImplBase {
 }
 {% endhighlight %} 
 
-- Tạo và intercept `TracingServerInterceptor` vào GrpcControler thông qua annotation `GrpcGlobalServerInterceptor`
+- Tạo và intercept ***TracingServerInterceptor*** vào GrpcControler thông qua annotation ***GrpcGlobalServerInterceptor***
 
 {% highlight java %}
   @Autowired
@@ -130,7 +130,7 @@ public class GrpcController extends SimpleGrpc.SimpleImplBase {
   }
 {% endhighlight %}
 
-- Tạo `TracingClientInterceptor` và intercept vào grpc-client thông qua annotation `GrpcGlobalClientInterceptor`
+- Tạo ***TracingClientInterceptor*** và intercept vào grpc-client thông qua annotation ***GrpcGlobalClientInterceptor***
 
 {% highlight java %}
   @Autowired

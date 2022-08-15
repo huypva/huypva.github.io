@@ -64,7 +64,7 @@ public class TimeLoggerAspectJ {
 }
 {% endhighlight %}
 
-- Thêm annotaion `EnableAspectJAutoProxy` để kích hoạt Aop
+- Thêm annotaion ***EnableAspectJAutoProxy*** để kích hoạt Aop
 
 {% highlight java %}
 @EnableAspectJAutoProxy

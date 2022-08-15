@@ -129,11 +129,11 @@ public class UserKafkaProducerImpl implements UserKafkaProducer {
 }
 {% endhighlight %}
 
-- Tương tự tạo các class `BankKafkaConfiguration`, `BankKafkaProducerImpl` cho broker thứ 2
+- Tương tự tạo các class ***BankKafkaConfiguration***, ***BankKafkaProducerImpl*** cho broker thứ 2
 
 ### Tạo Consumer
 
-- Tạo các bean *ConcurrentKafkaListenerContainerFactory*, *ConsumerFactory* cần thiết cho Consumer trong class `UserKafkaConfiguration` 
+- Tạo các bean *ConcurrentKafkaListenerContainerFactory*, *ConsumerFactory* cần thiết cho Consumer trong class ***UserKafkaConfiguration*** 
 
 {% highlight java %}
 @Component
@@ -186,7 +186,7 @@ public class UserKafkaConsumer {
 }
 {% endhighlight %}
 
-- Tương tự, thêm bean trong `BankKafkaConfiguration`, và tạo class `BankKafkaConsumer` cho broker thứ 2
+- Tương tự, thêm bean trong ***BankKafkaConfiguration***, và tạo class ***BankKafkaConsumer*** cho broker thứ 2
 
 - Enable Kafka cho project
 

@@ -102,6 +102,6 @@ Initialization block 1
 Contructor 1
 Initialization block 1
 Contructor 1
-{% endhighlight %}` 
+{% endhighlight %}
 
 > Thứ tự: Static initialization block -> Super initialization block -> Contructor

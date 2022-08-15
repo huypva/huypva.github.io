@@ -36,7 +36,7 @@ spring:
 
 ### Write a producer
 
-- Sử dụng bean `KafkaTemplate` để gửi một message lên topic `UserMessage` của Kafka
+- Sử dụng bean ***KafkaTemplate*** để gửi một message lên topic **UserMessage** của Kafka
 
 {% highlight java %}
     @Autowired

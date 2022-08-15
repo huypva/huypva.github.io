@@ -114,7 +114,7 @@ spring:
 
 - Sử dung ui của Consul tại địa chỉ http://localhost:8500/ui/dc1/kv để thêm nội dung giống như application.yml tại path /prefix/name/key/ 
 
-Ở đây, ví dụ có thay đổi một số giá trị `value` trong config trên Consul để dễ kiểm tra
+Ở đây, ví dụ có thay đổi một số giá trị **value** trong config trên Consul để dễ kiểm tra
 
 ![spring_boot_consul](../../spring_cloud/consul_configuration.png)
 
@@ -148,4 +148,4 @@ Value: my value from consul
 Application name: spring-boot-consul
 {% endhighlight %}
 
-*Lưu ý*: Sau khi sử dụng config trên Consul, nên xóa file config `application.yml` để tránh nhầm lẫn
+*Lưu ý*: Sau khi sử dụng config trên Consul, nên xóa file config ***application.yml*** để tránh nhầm lẫn

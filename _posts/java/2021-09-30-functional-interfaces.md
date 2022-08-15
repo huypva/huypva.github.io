@@ -21,7 +21,7 @@ Sử dụng Functional Interface thông qua Lambda Expressions
 (args) -> {block code}
 {% endhighlight %}
 
-- Dạng 2: dành cho `block code` chỉ có 1 dòng lệnh
+- Dạng 2: dành cho **block code** chỉ có 1 dòng lệnh
 
 {% endhighlight %}
 (args) -> code
@@ -31,7 +31,7 @@ Tiếp theo là một số Functional Interfaces có sẵn trong Java 8 thườn
 
 ## Supplier
 
-- *Suplier* chứa method trừu tượng không tham số, và return về một đối tượng
+- ***Suplier*** chứa method trừu tượng không tham số, và return về một đối tượng
 
 {% highlight java %}
 @FunctionalInterface
@@ -65,7 +65,7 @@ public interface Supplier<T> {
 
 ## Consumer
 
-- *Consumer* chứa method trừu tượng có một tham số đầu vào và không return (void method). 
+- ***Consumer*** chứa method trừu tượng có một tham số đầu vào và không return (void method). 
 
 {% highlight java %}
 @FunctionalInterface
@@ -98,7 +98,7 @@ public interface Consumer<T> {
 
 ## Predicate
 
-- *Predicate* chứa method trừu tượng có một tham số đầu vào, và return boolean (true/false)
+- ***Predicate*** chứa method trừu tượng có một tham số đầu vào, và return boolean (true/false)
 
 {% highlight java %}
 @FunctionalInterface
@@ -131,7 +131,7 @@ public interface Predicate<T> {
 
 ## Function
 
-- *Function* chứa method trừu tượng có một tham số đầu vào và return một tham số khác
+- ***Function*** chứa method trừu tượng có một tham số đầu vào và return một tham số khác
 
 {% highlight java %}
 @FunctionalInterface
@@ -162,11 +162,11 @@ public interface Function<T, R> {
 
 ## Comparator
 
-- Trước Java 8, *Comparator* là một Interface được sử dụng nhiều để so sánh 2 tham số. 
-Từ Java 8, Functional interface *Comparator* chứa method trừu tượng có 2 tham số (a, b) và return kiểu int với ý nghĩa
-    - `1`: a>b
-    - `0`: a=b
-    - `-1`: a < b
+- Trước Java 8, ***Comparator*** là một Interface được sử dụng nhiều để so sánh 2 tham số. 
+Từ Java 8, Functional interface ***Comparator*** chứa method trừu tượng có 2 tham số (a, b) và return kiểu int với ý nghĩa
+    - **1**: a>b
+    - **0**: a=b
+    - **-1**: a < b
 
 {% highlight java %}
 @FunctionalInterface

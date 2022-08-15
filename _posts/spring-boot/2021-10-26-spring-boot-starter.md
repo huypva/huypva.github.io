@@ -14,11 +14,11 @@ source: https://github.com/huypva/spring-boot-starter-example
 ## A Starter project
 
 - Project bao gồm 3 class chính:
-    - Class `SampleProperties`: chưa các variable được load từ file config application.yml
-    - Class `SampleService`: sample service cần sử dụng
-    - Class `SampleAutoConfiguration`: thực hiện việc auto-configuration
+    - Class **SampleProperties**: chưa các variable được load từ file config application.yml
+    - Class **SampleService**: sample service cần sử dụng
+    - Class **SampleAutoConfiguration**: thực hiện việc auto-configuration
 
-- Class `SampleProperties`
+- Class **SampleProperties**
 
 {% highlight java %}
 @Getter
@@ -32,9 +32,9 @@ public class SampleProperties {
 }
 {% endhighlight %}
 
-Giá trị được lấy từ config sau thuộc tính `sample-code`
+Giá trị được lấy từ config sau thuộc tính **sample-code**
 
-- Class `SampleService` 
+- Class **SampleService** 
 
 {% highlight java %}
 public class SampleServiceImpl implements SampleService {
@@ -52,10 +52,10 @@ public class SampleServiceImpl implements SampleService {
 }
 {% endhighlight %}
 
-- Class `SampleAutoConfiguration` thực hiện các việc
-    - Chỉ chạy auto khi thuộc tính `sample-code.active=true`
-    - Load config theo class `SampleProperties`
-    - Tự động tạo bean của class `SampleService`
+- Class **SampleAutoConfiguration** thực hiện các việc
+    - Chỉ chạy auto khi thuộc tính ***sample-code.active=true***
+    - Load config theo class **SampleProperties**
+    - Tự động tạo bean của class **SampleService**
 
 {% highlight java %}
 @Configuration
@@ -90,7 +90,7 @@ sample-code:
   value: Sample Value
 {% endhighlight %}
 
-- Lấy bean `SampleService` để sử dụng
+- Lấy bean **SampleService** để sử dụng
 
 {% highlight java %}
 @SpringBootApplication

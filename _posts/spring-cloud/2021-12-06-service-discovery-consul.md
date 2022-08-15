@@ -50,7 +50,7 @@ services:
 $ docker-compose up -d
 {% endhighlight %}
 
-- Truy cập Consul admin trên browser tại địa chỉ `http://localhost:8500/`
+- Truy cập Consul admin trên browser tại địa chỉ *http://localhost:8500/*
 
 <div align="center">
     <img src="/assets/img/spring_cloud/consul_start.png"/>

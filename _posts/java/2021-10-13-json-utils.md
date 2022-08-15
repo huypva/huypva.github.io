@@ -21,7 +21,7 @@ source: https://github.com/huypva/json-utils-example
     
 ## Gson
 
-- Thêm dependency `gson` trong pom.xml
+- Thêm dependency **gson** trong pom.xml
 
 {% highlight xml %}
     <dependency>
@@ -31,7 +31,7 @@ source: https://github.com/huypva/json-utils-example
     </dependency>
 {% endhighlight %}
 
-- Tạo và sử dụng thông qua class `Gson`
+- Tạo và sử dụng thông qua class **Gson**
 
 {% highlight java %}
 public class GsonUtils {
@@ -53,7 +53,7 @@ public class GsonUtils {
 }
 {% endhighlight %}
 
-- Sử dụng annotation *SerializedName* lên object cần thao tác để thay đổi param name
+- Sử dụng annotation ***SerializedName*** lên object cần thao tác để thay đổi param name
 
 {% highlight java %}
 public class GsonAnnotationObject {
@@ -82,7 +82,7 @@ Output:
 
 ## Jackson
 
-- Thêm dependency `jackson-databind` trong pom.xml
+- Thêm dependency **jackson-databind** trong pom.xml
 
 {% highlight xml %}
 <dependencies>
@@ -94,7 +94,7 @@ Output:
 </dependencies>
 {% endhighlight %}
 
-- Tạo và sử dụng thông qua class `ObjectMapper`
+- Tạo và sử dụng thông qua class ***ObjectMapper***
 
 {% highlight java %}
 public class JacksonUtils {
@@ -128,7 +128,7 @@ public class JacksonUtils {
 }
 {% endhighlight %}
 
-- Sử dụng annotation *JsonAlias* lên object cần thao tác để thay đổi param name
+- Sử dụng annotation ***JsonAlias*** lên object cần thao tác để thay đổi param name
 
 {% highlight java %}
 @AllArgsConstructor

@@ -58,7 +58,7 @@ spring:
       file: classpath:redisson.yml
 {% endhighlight %}
 
-- Thao tác với redis thông qua bean `RedissonClient`
+- Thao tác với redis thông qua bean ***RedissonClient***
 
 {% highlight java %}
   @Autowired
