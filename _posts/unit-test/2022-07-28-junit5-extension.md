@@ -68,7 +68,7 @@ class SpringBootTestTest {
 {% endhighlight %}
 
 Run Test trên sẽ cho kết quả in toàn bộ bean của Spring được khởi tạo  
-{% endhighlight %}
+{% highlight text %}
 ...
 Bean: server-org.springframework.boot.autoconfigure.web.ServerProperties
 Bean: serviceA
