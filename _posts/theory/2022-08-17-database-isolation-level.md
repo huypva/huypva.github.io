@@ -17,6 +17,7 @@ categories: [Theory]
 Database isolation là khả năng cho phép một transaction được thực thi độc lập với các giao dịch đồng thời khác đang chạy
 
 Tùy theo mức độ mà database isolation được chia làm 4 cấp độ (levels) - mức độ tăng dần như bên dưới  
+
 +----------------------+---------------------------------------------------------------+     +--------------+----------+
 |   Isolation level    | Dirty read | Lost Update | Non-repeatable Read | Phantom Read |     |     Read     |   Write  |
 +----------------------+------------+-------------+---------------------+--------------+     +--------------+----------+
@@ -31,6 +32,7 @@ Giải thích một số khái niệm
 - **X Lock** (Exclusive Lock): Nếu X Lock vào data nào đó, thì sẽ không cho phép 1 transaction khác đọc hay chỉnh sửa nó
 
 - **Dirty read**: Là hiện tượng mà một giao dịch đọc data mà sau đó data này đã bị chỉnh sửa bởi một giao dịch khác  
+
 | Transaction 1             | Transaction 2                       |
 |---------------------------|-------------------------------------|
 | UPDATE users SET age = 21 |                                     |
@@ -45,7 +47,7 @@ Giải thích một số khái niệm
 |                           |/* lock-based DIRTY READ */          |
 |---------------------------|-------------------------------------|
 
-- **Non-repeatable read**: xảy ra khi transaction A tiến hành phép read trên dữ liệu, sau đó transaction B thực hiện phép write làm dữ liệu thay đổi, lần kế tiếp A lại tiến hành phép read với chính dữ liệu. Như vậy, 2 lần đọc của A thấy dữ liệu không nhất quán (consistency) trên cùng một bản ghi.
+- **Non-repeatable read**: trong quá trính thực hiện transaction, 1 row được đọc 2 lần và ra 2 kết quả khác nhau - During the course of a transaction, a row is retrieved twice and the values within the row differ between reads 
 
 - **Phantom read**: là rủi ro xảy ra với lệnh read có điều kiện (chẳng hạn mệnh đề where trong sql). Transaction A đọc được một số X dữ liệu thỏa mãn điều kiện 1, transaction B tiến hành phép write sinh ra một lượng Y dữ liệu thỏa mãn điều kiện , A tính toán lại với điều kiện 1 thấy bổ sung thêm một lượng Y dữ và tổng dữ liệu giữa 2 lần trở lên không đồng nhất.
      
