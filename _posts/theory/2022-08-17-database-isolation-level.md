@@ -22,8 +22,8 @@ Tùy theo mức độ mà database isolation được chia làm 4 cấp độ (l
 |   Isolation level    | Dirty read | Lost Update | Non-repeatable Read | Phantom Read | --> |     Read     |   Write  |
 +----------------------+------------+-------------+---------------------+--------------+ --> +--------------+----------+
 | **Read Uncommitted** |  Possible  |   Possible  |      Possible       |   Possible   | --> |    No Lock   |  X Lock  | 
-| **Read Committed**   | Impossible |   Possible  |      Possible       |   Possible   | --> | MVCC (first) |  X Lock  | 
-| **Repeatable Read**  | Impossible | Impossible  |     Impossible      |   Possible   | --> |  MVCC (last) |  X Lock  | 
+| **Read Committed**   | Impossible |   Possible  |      Possible       |   Possible   | --> | MVCC (last) |  X Lock  | 
+| **Repeatable Read**  | Impossible | Impossible  |     Impossible      |   Possible   | --> |  MVCC (first) |  X Lock  | 
 | **Serializable**     | Impossible | Impossible  |     Impossible      |  Impossible  | --> |    S Lock    |  X Lock  | 
 +----------------------+------------+-------------+---------------------+--------------+ --> +--------------+----------+
 {% endhighlight %}
@@ -31,26 +31,28 @@ Tùy theo mức độ mà database isolation được chia làm 4 cấp độ (l
 Giải thích một số khái niệm 
 - **S Lock** (Shared Lock): Nếu transaction A đã lock data, thì transaction B chỉ có thể read data thôi, không được chỉnh sửa
 - **X Lock** (Exclusive Lock): Nếu X Lock vào data nào đó, thì sẽ không cho phép 1 transaction khác đọc hay chỉnh sửa nó
+- **MVCC(MVCC Multi-Version Consistency Control) first**: read data at the beginning of the transaction 
+- **MVCC last**: read lasted committed data
 
 - **Dirty read**: Là hiện tượng mà một giao dịch đọc data mà sau đó data này đã bị chỉnh sửa bởi một giao dịch khác  
 {% highlight sql %}
-                                     | Transaction 1             | Transaction 2              |
-                                     |---------------------------|----------------------------|
-Transaction 1 changes a row,         | UPDATE users SET age = 21 |                            |
-but does not commit the changes      | WHERE id = 1;             |                            |
-                                     | /* No commit here */      |                            |
-                                     |---------------------------|--------------------------- |
-Transaction 2 then reads             |                           | SELECT age FROM users      |
-the uncommitted data                 |                           | WHERE id = 1;              |  
-                                     |                           | /* will read 21 */         |
-                                     |---------------------------|----------------------------|
-Transaction 1 rolls back or          | ROLLBACK;                 |                            | 
-updates different changes to         |                           |                            |
-the database                         |                           |                            |
-                                     |---------------------------|----------------------------|
-Data got from Transaction 2          |                           |/* lock-based DIRTY READ */ |
-is dirty                             |                           |                            |
-                                     |---------------------------|----------------------------|                                 
+|                                    | Transaction 1             | Transaction 2              |
+|------------------------------------|---------------------------|----------------------------|
+| Transaction 1 changes a row,       | UPDATE users SET age = 21 |                            |
+| but does not commit the changes    | WHERE id = 1;             |                            |
+|                                    | /* No commit here */      |                            |
+|------------------------------------|---------------------------|--------------------------- |
+| Transaction 2 then reads           |                           | SELECT age FROM users      |
+| the uncommitted data               |                           | WHERE id = 1;              |  
+|                                    |                           | /* will read 21 */         |
+|------------------------------------|---------------------------|----------------------------|
+| Transaction 1 rolls back or        | ROLLBACK;                 |                            | 
+| updates different changes to       |                           |                            |
+| the database                       |                           |                            |
+|------------------------------------|---------------------------|----------------------------|
+| Data got from Transaction 2        |                           |/* lock-based DIRTY READ */ |
+| is dirty                           |                           |                            |
+|------------------------------------|---------------------------|----------------------------|                                 
 {% endhighlight %}
 
 - **Non-repeatable read**: trong quá trính thực hiện transaction, 1 row được đọc 2 lần và ra 2 kết quả khác nhau - During the course of a transaction, a row is retrieved twice and the values within the row differ between reads 
