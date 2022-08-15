@@ -17,7 +17,7 @@ source: https://github.com/huypva/spring-boot-consul-example
 
 Tạo một project với file configuration application.yml như sau
 
-```yaml
+{% highlight yaml %}
 server:
   port : 8081
 spring:
@@ -26,11 +26,11 @@ spring:
 my-config:
   id: 1
   value: my value
-``` 
+{% endhighlight %}
 
 - Tạo class lấy config từ file 
 
-```java
+{% highlight java %}
 @Getter
 @Setter
 @Configuration
@@ -41,11 +41,11 @@ public class MyConf {
   private String value;
 
 }
-```
+{% endhighlight %}
 
-- Tạo class autowired bean `MyConf` và sử dụng
+- Tạo class autowired bean **MyConf** và sử dụng
 
-```java
+{% highlight java %}
     @Autowired
     MyConf myConf;
 
@@ -59,24 +59,24 @@ public class MyConf {
 
 		System.out.println("Application name: " + applicationName);
 	}
-```
+{% endhighlight %}
 
 - Kết quả sau khi chạy chương trình
 
-```shell
+{% highlight shellscipt %}
 $ ./mvnw spring-boot:run
 2021-09-29 10:18:22.194  INFO 2892 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
 2021-09-29 10:18:22.201  INFO 2892 --- [           main] i.c.springbootconsul.Application         : Started Application in 3.853 seconds (JVM running for 4.93)
 Id: 1
 Value: my value
 Application name: spring-boot-consul
-```
+{% endhighlight %}
 
 ## Sử dụng configuration với Consul
 
 - Thêm dependency [spring-cloud-starter-consul-config](https://cloud.spring.io/spring-cloud-consul/reference/html/){:target="_blank"}
 
-```xml
+{% highlight xml %}
 <dependencies>
     <dependency>
         <groupId>org.springframework.cloud</groupId>
@@ -84,11 +84,11 @@ Application name: spring-boot-consul
         <version>2.2.7.RELEASE</version>
     </dependency>
 </dependencies>
-```
+{% endhighlight %}
 
 - Tạo file bootstrap.yml
 
-```yaml
+{% highlight yaml %}
 spring:
   profiles:
     active: local
@@ -104,7 +104,7 @@ spring:
         default-context: context #default: application
         profile-separator: '::'
         data-key: key
-```
+{% endhighlight %}
 
   - *Lưu ý*: Project sẽ đọc tất cả các nội dụng trong các path sau:
     - [prefix]/[name]/[key]
@@ -120,7 +120,7 @@ spring:
 
 - Kết quả sau khi chạy chương trình
 
-```shell
+{% highlight text %}
 $ ./mvnw spring-boot:run
 ...
   .   ____          _            __ _ _
@@ -146,6 +146,6 @@ $ ./mvnw spring-boot:run
 Id: 1
 Value: my value from consul
 Application name: spring-boot-consul
-```
+{% endighlight %}
 
 *Lưu ý*: Sau khi sử dụng config trên Consul, nên xóa file config `application.yml` để tránh nhầm lẫn
