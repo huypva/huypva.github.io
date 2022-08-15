@@ -23,7 +23,7 @@ source: https://github.com/huypva/spring-cloud-circuit-breaker-example
 
 - Thêm config cho OpenFeign client và Resilience4j
 
-```yaml
+{% highlight yaml %}
 serviceb:
   url: http://localhost:8082
   path:
@@ -44,7 +44,7 @@ resilience4j.circuitbreaker:
       minimumNumberOfCalls: 5
       waitDurationInOpenState: 10s
       failureRateThreshold: 50
-```
+{% endhighlight %}
 
 - Enable OpenFeign client
 
@@ -62,7 +62,7 @@ public class ServiceAApplication {
 
 - Tạo OpenFeign client và thêm ***@CircuitBreaker***
 
-```java
+{% highlight java %}
 @FeignClient(value = "serviceb", url = "${serviceb.url}")
 public interface ServiceBClient {
 
@@ -74,11 +74,11 @@ public interface ServiceBClient {
     return new MessageB("Fallback method");
   }
 }
-```
+{% endhighlight %}
 
 ## Tạo server service-B đơn giản
 
-```java
+{% highlight java %}
 @RestController
 public class Controller {
 
@@ -89,11 +89,11 @@ public class Controller {
     return new MessageB("MessageB greet " + id);
   }
 }
-```
+{% endhighlight %}
 
 ## Ý nghĩa các giá trị config
 
-![circuit_breaker_state_machine](assets/img/spring_cloud/circuit_breaker_state_machine.jpeg)
+![circuit_breaker_state_machine](/assets/img/spring_cloud/circuit_breaker_state_machine.jpeg)
 
     - registerHealthIndicator: true
     - failureRateThreshold: ngưỡng tỉ lệ lỗi, lớn hơn hoặc bằng ngưỡng này CircuitBreaker sẽ bật OPEN
