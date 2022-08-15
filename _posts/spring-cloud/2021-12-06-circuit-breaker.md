@@ -48,7 +48,7 @@ resilience4j.circuitbreaker:
 
 - Enable OpenFeign client
 
-```java
+{% highlight java %}
 @EnableFeignClients
 @SpringBootApplication
 public class ServiceAApplication {
@@ -58,7 +58,7 @@ public class ServiceAApplication {
 	}
 
 }
-```
+{% endhighlight %}
 
 - Tạo OpenFeign client và thêm ***@CircuitBreaker***
 
@@ -93,8 +93,11 @@ public class Controller {
 
 ## Ý nghĩa các giá trị config
 
-![circuit_breaker_state_machine](/assets/img/spring_cloud/circuit_breaker_state_machine.jpeg)
+<div align="center">
+    <img src="/assets/img/spring_cloud/circuit_breaker_state_machine.jpeg"/>
+</div>
 
+{% highlight text %}
     - registerHealthIndicator: true
     - failureRateThreshold: ngưỡng tỉ lệ lỗi, lớn hơn hoặc bằng ngưỡng này CircuitBreaker sẽ bật OPEN
     - slowCallDurationThreshold: khoảng thời gian 1 call được gọi là slow
@@ -107,6 +110,7 @@ public class Controller {
     - waitDurationInOpenState: thời gian CircuitBreaker đợi chuyển từ OPEN sang HALF-OPEN 
     - ignoreExceptions: danh sách Exception ko được tính lỗi
     - recordFailurePredicate: một custom Predicate để đánh giá lỗi hay khôn
+{% endhighlight %}
 
 ## Reference
 - <https://resilience4j.readme.io/docs/circuitbreaker>
