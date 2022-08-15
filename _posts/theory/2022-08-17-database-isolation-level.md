@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Database isolation level
-date: 2021-11-01 10:00:20 +0700
+date: 2022-08-15 10:00:20 +0700
 description: Giải thích database isolation level
 img: theory/consistency.png
 tags: [Theory]
@@ -16,7 +16,7 @@ categories: [Theory]
    
 Database isolation là khả năng cho phép một transaction được thực thi độc lập với các giao dịch đồng thời khác đang chạy
 
-Tùy theo mức độ mà database isolation được chia làm 4 cấp độ (levels) - mức độ tăng dần như bên dưới
+Tùy theo mức độ mà database isolation được chia làm 4 cấp độ (levels) - mức độ tăng dần như bên dưới  
 +----------------------+---------------------------------------------------------------+     +--------------+----------+
 |   Isolation level    | Dirty read | Lost Update | Non-repeatable Read | Phantom Read |     |     Read     |   Write  |
 +----------------------+------------+-------------+---------------------+--------------+     +--------------+----------+
@@ -31,9 +31,9 @@ Giải thích một số khái niệm
 - **X Lock** (Exclusive Lock): Nếu X Lock vào data nào đó, thì sẽ không cho phép 1 transaction khác đọc hay chỉnh sửa nó
 
 - **Dirty read**: Là hiện tượng mà một giao dịch đọc data mà sau đó data này đã bị chỉnh sửa bởi một giao dịch khác
-        | - | - |
-        |---|---|
-        | Transaction 1 changes a row, but does not commit the changes  |  |
+| - | - |
+|---|---|
+| Transaction 1 changes a row, but does not commit the changes  |  |
 
 - **Non-repeatable read**: xảy ra khi transaction A tiến hành phép read trên dữ liệu, sau đó transaction B thực hiện phép write làm dữ liệu thay đổi, lần kế tiếp A lại tiến hành phép read với chính dữ liệu. Như vậy, 2 lần đọc của A thấy dữ liệu không nhất quán (consistency) trên cùng một bản ghi.
 
