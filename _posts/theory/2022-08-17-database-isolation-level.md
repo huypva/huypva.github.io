@@ -12,20 +12,21 @@ categories: [Theory]
 
 ## Database isolation
 
->> Database isolation refers to the ability of a database to allows a transaction to execute as if there are no other concurrently running transactions.
+> Database isolation refers to the ability of a database to allows a transaction to execute as if there are no other concurrently running transactions.
    
 Database isolation là khả năng cho phép một transaction được thực thi độc lập với các giao dịch đồng thời khác đang chạy
 
-Tùy theo mức độ mà database isolation được chia làm 4 cấp độ (levels) - mức độ tăng dần như bên dưới  
+Tùy theo mức độ mà database isolation được chia làm 4 cấp độ (levels) - mức độ giảm dần như bên dưới  
 {% highlight sql %}
-+----------------------+---------------------------------------------------------------+ --> +--------------+----------+
-|   Isolation level    | Dirty read | Lost Update | Non-repeatable Read | Phantom Read | --> |     Read     |   Write  |
-+----------------------+------------+-------------+---------------------+--------------+ --> +--------------+----------+
-| **Read Uncommitted** |  Possible  |   Possible  |      Possible       |   Possible   | --> |    No Lock   |  X Lock  | 
-| **Read Committed**   | Impossible |   Possible  |      Possible       |   Possible   | --> | MVCC (last) |  X Lock  | 
-| **Repeatable Read**  | Impossible | Impossible  |     Impossible      |   Possible   | --> |  MVCC (first) |  X Lock  | 
-| **Serializable**     | Impossible | Impossible  |     Impossible      |  Impossible  | --> |    S Lock    |  X Lock  | 
-+----------------------+------------+-------------+---------------------+--------------+ --> +--------------+----------+
++-------------------+------+--------+--------------+---------+     +-----------+-------+
+|   Isolation level | Dirty| Lost   |Non-repeatable| Phantom |     |  Read     | Write |
+|                   | read | Update |Read          | Read    |     |           |       |
++-------------------+------+--------+--------------+---------+     +-----------+-------+ 
+| Serializable      |   N  |   N    |     N        |    N    | --> | S Lock    |X Lock |
+| Repeatable Read   |   N  |   N    |     N        |    Y    | --> |MVCC(first)|X Lock | 
+| Read Committed    |   N  |   Y    |     Y        |    Y    | --> |MVCC (last)|X Lock |
+| Read Uncommittet  |   Y  |   Y    |     Y        |    Y    | --> |  No Lock  |X Lock |  
++-------------------+------+--------+--------------+---------+     +-----------+-------+
 {% endhighlight %}
 
 Giải thích một số khái niệm 
@@ -34,6 +35,7 @@ Giải thích một số khái niệm
 - **MVCC(MVCC Multi-Version Consistency Control) first**: read data at the beginning of the transaction 
 - **MVCC last**: read lasted committed data
 
+Read phenomena
 - **Dirty read**: Là hiện tượng mà một giao dịch đọc data mà sau đó data này đã bị chỉnh sửa bởi một giao dịch khác  
 {% highlight sql %}
                                 | Transaction 1             | Transaction 2              |
@@ -95,9 +97,11 @@ the second time            |  AND 30;               |                           
                            |------------------------|----------------------------------|
 {% endhighlight %}
      
-- Read Uncommitted: 
-
+**Isolation level**
 - Serializable: mức cao nhất của isolation levels, yêu cầu cả read và write locks. Khi SELECT với điều kiện WHERE là ranged thì cũng yêu cầu range-locks để tránh phantom read
+- Repeatable Reads: có read và write locks nhưng không cần đến range locks, nên phantom reads có thể xảy ra
+- Read committed: chỉ bao gồm write locks, nên read committed chỉ đảm bảo dirty reads là không xảy ra
+- Read Uncommitted: mức thấp nhất, cả 3 dirty reads, non-repeatable reads, phantom reads đều có thể xảy ra
 
 
 ## Reference
